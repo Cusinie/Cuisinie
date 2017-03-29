@@ -1,0 +1,49 @@
+
+<!-- This is the form for selecting the type of food you want to search by. -->
+<%= form_for(@cuisine) do |f| %>
+
+  <%= radio_button_tag(:cuisine_type, "193") %>
+  <%= label_tag(:cuisine_type_193, "BBQ") %>
+
+  <%= radio_button_tag(:cuisine_type, "227") %>
+  <%= label_tag(:cuisine_type_227, "Bar Food") %>
+
+  <%= radio_button_tag(:cuisine_type, "168") %>
+  <%= label_tag(:cuisine_type_168, "Caribbean") %>
+
+  <%= radio_button_tag(:cuisine_type, "25") %>
+  <%= label_tag(:cuisine_type_25, "Chinese") %>
+
+  <%= radio_button_tag(:cuisine_type, "55") %>
+  <%= label_tag(:cuisine_type_55, "Italian") %>
+
+  <%= radio_button_tag(:cuisine_type, "148") %>
+  <%= label_tag(:cuisine_type_148, "Indian") %>
+
+  <%= radio_button_tag(:cuisine_type, "60") %>
+  <%= label_tag(:cuisine_type_60, "Japanese") %>
+
+  <%= radio_button_tag(:cuisine_type, "150") %>
+  <%= label_tag(:cuisine_type_150, "Tex-Mex") %>
+
+  <%= radio_button_tag(:cuisine_type, "177") %>
+  <%= label_tag(:cuisine_type_177, "Sushi") %>
+
+  <%= radio_button_tag(:cuisine_type, "308") %>
+  <%= label_tag(:cuisine_type_308, "Vegetarian") %>
+
+  <%= f.submit %>
+<% end %>
+
+<!-- The following comments are to show how to add custom attributes, if need be. It should be deleted during practice, because the strings and integers might still show up in the browser. -->
+<!-- <%= options_for_select(
+  [
+    ['Lisbon', 1, { 'data-size' => '2.8 million' }],
+    ['Madrid', 2, { 'data-size' => '3.2 million' }]
+  ], 2
+) %>
+
+output:
+
+<option value="1" data-size="2.8 million">Lisbon</option>
+<option value="2" selected="selected" data-size="3.2 million">Madrid</option> -->
