@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <nav>
+    <nav id = navbar>
          <ul>
              <li><%= link_to "Home", root_path %></li>
              <% if current_user %>
@@ -20,6 +20,8 @@
              <% end %>
          </ul>
      </nav>
+
+
 
     <%= yield %>
   </body>
