@@ -1,53 +1,63 @@
-
-
-
-
 <h1>Welcome to world</h1>
 <!-- Main Container -->
 <div id="container" class="flexChild columnParent">
-<!-- Container Starts   -->
-		<div id="topcolumnParent" class="flexChild columnParent">
+	<!-- Container Starts   -->
+	<div id="topcolumnParent" class="flexChild columnParent">
 
-<!--Header -->
-				<div id="headerStart" class="flexChild rowParent">
+		<!--Header -->
+		<div id="headerStart" class="flexChild rowParent">
 
-						<div id="logo" class="flexChild"> <p>logo</p> </div>
+			<div id="logo" class="flexChild">
+				<p>logo</p>
+			</div>
 
-						<div id="header" class="flexChild rowParent">
+			<div id="header" class="flexChild rowParent">
 
-								<div id="conainerholdingLogo" class="flexChild">
-									<p>Dummy Data </p>
-								</div>
-
-								<div id="navBar" class="flexChild selected"><p>Nav Bar </p></div>
-						</div>
+				<div id="conainerholdingLogo" class="flexChild">
+					<p>Dummy Data
+					</p>
 				</div>
 
-<!--  Slideshow    -->
-				<div id="slideshow" class="flexChild"><img src="Pictures/Strip_Lord_Mattis_III.jpeg" width="700" height="200" alt=""/></div>
-		</div>
-<!-- Filter and Results    -->
-
-		<div id="bottomColumnParent" class="flexChild columnParent">
-				<div id="bottomrowParent" class="flexChild rowParent">
-<!--  Filter  -->
-						<div id="filterBar" class="flexChild columnParent"><p>Select Your FIlters </p>
-								<div id="locationFilter" class="flexChild columnParent"><p>location filter </p>
-				<div id="cuisineFilter" class="flexChild"><p>cuisine filter </p></div>
-										<div id="priceRange" class="flexChild"> <p>prince range </p></div>
-								</div>
-<!--  Results   -->
-
-
-						<div id="filteredResults" class="flexChild columnParent">
-
-								<div id="descResults1" class="flexChild"></div>
-
-
-						</div>
+				<div id="navBar" class="flexChild selected">
+					<p>Nav Bar
+					</p>
 				</div>
-
-				<div id="footer" class="flexChild"></div>
+			</div>
 		</div>
-</div>
+
+		<!--  Slideshow    -->
+		<div id="slideshow" class="flexChild"><img src="Pictures/Strip_Lord_Mattis_III.jpeg" width="700" height="200" alt=""/></div>
+	</div>
+	<!-- Filter and Results    -->
+<%= render "cuisine_search_form"%>
+	<div id="bottomColumnParent" class="flexChild columnParent">
+		<div id="bottomrowParent" class="flexChild rowParent">
+			<!--  Filter  -->
+			<div id="filterBar" class="flexChild columnParent">
+				<p>Select Your FIlters
+				</p>
+				<div id="locationFilter" class="flexChild columnParent">
+					<p>location filter
+					</p>
+					<div id="cuisineFilter" class="flexChild">
+						<p>cuisine filter
+						</p>
+					</div>
+					<div id="priceRange" class="flexChild">
+						<p>prince range
+						</p>
+					</div>
+				</div>
+				<!--  Results   -->
+
+				<div id="filteredResults" class="flexChild columnParent">
+
+					<div id="descResults1" class="flexChild"></div>
+
+				</div>
+			</div>
+
+			<div id="footer" class="flexChild"></div>
+		</div>
+	</div>
 </div>
