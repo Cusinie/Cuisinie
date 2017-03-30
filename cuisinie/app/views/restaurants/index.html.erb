@@ -3,76 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <title>Untitled Document</title>
-<link href="../app/assets/stylesheets/application.css" rel="stylesheet" type="text/css">
+<link href="untitled3.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-<!-- Main Container -->
-<div id="container" class="flexChild columnParent">
-<!-- Container Starts   -->
-		<div id="topcolumnParent" class="flexChild columnParent">
 
-<!--Header -->
-				<div id="headerStart" class="flexChild rowParent">
+<div id="container">
+  <nav role="navigation">
+	  <img id="imglogo" src="http://i.imgur.com/oxokbLO.png">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Favorites</a>
+      <ul>
+        <li><a href="">Latest Restaurant</a></li>
+      </ul>
+    </li>
 
-						<div id="logo" class="flexChild"> <p>Dummy Data</p> </div>
-
-						<div id="header" class="flexChild rowParent">
-
-<!-- Nav Bar  -->
-								
-									<nav role="navigation">
-	<img id="imglogo" src="http://i.imgur.com/oxokbLO.png">
-<ul>
-	<li><a href="#">Home</a></li>
-	<li><a href="#">Favorites</a>
-		<ul>
-			<li><a href="">Latest Restaurant</a></li>
-		</ul>
-	</li>
-
-	<li><a href="#">Sign-In</a></li>
-	<li><a href="#">Sign-Up</a></li>
-</ul>
+    <li><a href="#">Sign-In</a></li>
+    <li><a href="#">Sign-Up</a></li>
+  </ul>
 </nav>
 
 
-								</div>
-						</div>
-				</div>
+	<div id="slideshowContainer">
 
-<!--  Slideshow    -->
-				<div id="slideshow" class="flexChild"><img src="Pictures/Strip_Lord_Mattis_III.jpeg" width="1500" height="762" alt=""/></div>
+	<div id="slideshow"> <img src="../Pictures/Photos Library.photoslibrary/Masters/2017/03/25/20170325-030024/IMG_2688.JPG" width="640" height="458" alt=""/></div>
+	</div>
+
+	<div id="productDiv">
+
+
+
+<div id="searchFilter">
+
+<form action="/action_page.php">
+
+
+		<select>
+			<option>New York</option>
+
+		</select>
+
+<p>
+  <label>
+    <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_0">
+    BBQ</label>
+  <br>
+  <label>
+    <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_1">
+    Bar Food</label>
+  <br>
+  <label>
+    <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_2">
+    Carribean</label>
+  <br>
+  <label>
+    <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_3">
+    Chinese</label>
+  <br>
+  <label>
+    <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_4">
+    Italian</label>
+  <br>
+  <label>
+    <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_5">
+    Japaneese</label>
+  <br>
+  <label>
+    <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_6">
+    Tex-Mex</label>
+  <br>
+  <label>
+    <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_7">
+    Sushi</label>
+  <br>
+  <label>
+    <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_8">
+    Vegetarian</label>
+  <br>
+</p>
+
+		<select>
+			<option>$</option>
+  			<option>$$</option>
+  			<option>$$$</option>
+  			<option>$$$$</option>
+  			<option>$$$$$</option>
+
+		</select>
+
+<input type="submit">
+</form>
+
+
+	</div>
+
+		<div id="results">
+	<table width="550" border="0">
+  <caption>
+	  <h2> Search results that were choosen come here.</h2>
+	  <h3>Click on the image to send to open up the restaurant</h3>
+  </caption>
+  <tbody>
+    <tr>
+		<td><a href="">im</a></td>
+      <td>Name</td>
+      <td>Address</td>
+      <td>Phone</td>
+      <td>Rating</td>
+    </tr>
+    <tr>
+      <td>Pic</td>
+      <td>Name</td>
+      <td>Address</td>
+      <td>Phone</td>
+      <td>Rating</td>
+    </tr>
+    <tr>
+      <td>Pic</td>
+      <td>Name</td>
+      <td>Address</td>
+      <td>Phone</td>
+      <td>Rating</td>
+    </tr>
+  </tbody>
+</table>
 		</div>
-<!-- Filter and Results    -->
 
-		<div id="bottomColumnParent" class="flexChild columnParent">
-				<div id="bottomrowParent" class="flexChild rowParent">
-<!--  Filter  -->
-						<div id="filterBar" class="flexChild columnParent"><p>Select Your FIlters </p>
-								<div id="locationFilter" class="flexChild columnParent"><p>Dummy Data </p>
-				<div id="cuisineFilter" class="flexChild"><p>Dummy Data </p></div>
-										<div id="priceRange" class="flexChild"> <p>Dummy Data </p></div>
-								</div>
-<!--  Results   -->
+	</div>
+	<div id="footer">
 
-
-						<div id="filteredResults" class="flexChild columnParent">
-
-								<div id="descResults1" class="flexChild"></div>
-
-
-						</div>
-				</div>
-
-				<div id="footer" class="flexChild"></div>
-		</div>
+		<h1>this is the footer </h1>
+	</div>
 </div>
-</div>
-
-
 </body>
-
-
 </html>
