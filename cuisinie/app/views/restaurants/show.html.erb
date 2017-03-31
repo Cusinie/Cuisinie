@@ -1,0 +1,44 @@
+<p>
+    <%= @restaurant["name"] %>
+</p>
+<p><%= @restaurant["address"] %>
+</p>
+<img src="<%= @restaurant["img_url"] %>" alt="img">
+</p>
+<p> Cost for two: <%= @restaurant["cost"] %>*
+</p>
+<div id="this">
+
+</div>
+
+<h4>Comment list:</h4>
+
+
+<% @comments.each do |comment| %>
+<tb>
+<p>
+  <%= comment.content %>
+  <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
+    <%= f.submit "Delete"%>
+    <% end %>
+</p>
+<% end %>
+
+</tb>
+
+<h3>Leave a comment:</h3>
+
+<%= render "comments/comments_form", comment: @comment %>
+
+<br>
+
+
+<%= link_to "Back to Home", restaurant_path %>
+
+<p><% @restaurant["lat"] %>
+</p>
+<p><% @restaurant["lon"] %>
+</p>
+<p><% @restaurant["restaurant_id"] %>
+
+</p>

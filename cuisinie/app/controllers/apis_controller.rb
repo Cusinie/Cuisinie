@@ -1,8 +1,6 @@
 class ApisController < ApplicationController
   def create
-    p '>.......................................'
     @new_data = search.parsed_response
-    p '>.......................................'
     @new_data['restaurants']
     @filtered_response = @new_data['restaurants'].map do |restaurant|
       { 'name' => restaurant['restaurant']['name'],
