@@ -1,5 +1,6 @@
 # Radio Form to do API calls by cuisine type
 
+
 This file is for when a user will be searching for restaurants, specifically by the type of food.
 
 The form partial is specifically to pass values to however we're doing our api call. The form should correspond to the correct controller.
@@ -22,3 +23,10 @@ Any other questions on how form helpers work?
 http://guides.rubyonrails.org/form_helpers.html
 
 That's where I learned how to set things up lol.
+
+Restaurant Finder 
+
+
+
+![cuisinielogo](https://cloud.githubusercontent.com/assets/25334388/24486476/4d711448-14d8-11e7-9050-573462a35b35.jpeg)
+
