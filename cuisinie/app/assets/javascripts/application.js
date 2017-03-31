@@ -30,13 +30,13 @@ $(document).ready(function() {
       const $addr = $('<p class=\"resAddr\"></p>').text(val.address);
       const $cost = $('<p class=\"resCost\"></p>').text("Avg cost for 2: " + val.cost);
       const $rating = $('<p class=\"resRate\"></p>').text("Avg user rating: " + val.user_rating);
-      const $id = $('<p type=\"hidden\"  class=\"resid\"></p>').val(val.restaurant_id);
-      $name.appendTo($container);
-      $image.appendTo($container);
+      const $id = $('<a href=\"/show/'+val.restaurant_id+'\" />').val(val.restaurant_id);
+      $id.appendTo($container);
+      $name.appendTo($id);
+      $image.appendTo($id);
       $addr.appendTo($container);
       $cost.appendTo($container);
       $rating.appendTo($container);
-      $id.appendTo($container);
       $('<br><br>').appendTo($container);
       $container.appendTo('body');
       // console.log(container,name,image,addr,cost,rating);

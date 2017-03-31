@@ -17,6 +17,8 @@ class ApisController < ApplicationController
     render json: @filtered_response
   end
 
+  private
+
   def search
     query = {
       'entity_id' => 280,
@@ -25,8 +27,6 @@ class ApisController < ApplicationController
     }
     @cuisine = HTTParty.get('https://developers.zomato.com/api/v2.1/search?', query: query, headers: headers)
   end
-
-  private
 
   def headers
     header = {
