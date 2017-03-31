@@ -404,8 +404,13 @@ and (max-device-width : 1366px)
 /* ----------- Moto 360 Watch ----------- */
 @media screen
   (max-device-width: 218px)
-  and (max-device-height: 281px) { 
+  and (max-device-height: 281px)
 
+
+@-webkit-keyframes pic {
+    100% { left: 0; }
 }
 
-
+@keyframes pic {
+    100% { left: 0; }
+}
