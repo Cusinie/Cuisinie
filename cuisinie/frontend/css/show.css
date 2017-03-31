@@ -78,73 +78,76 @@ nav{
             left: 100%; 
             top:0;
           }
-
+/**/
 
 #slideshowContainer {
 	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-
 }
 
 #slideshow {
 	display: flex;
-	width: 40%;
-	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	flex-direction: row;
+	
+	
 }
 
 #pic {
-	width: 100%;
-	height:40%;
-	align-content: center;
-	flex-direction: column;
-	
+	display: flex;
+	width: 40%;
+	height: 70%;
+	flex-direction: row;
 }
 
 #maplocation {
-	background-color: bisque;
-	flex-direction: column;
+	background-image: url(../images/subway_map.jpg);
+	background-color: #0079B2;
+	background-position: center;
+	width: 60%;
+	height: 100%;
+	display: flex;
+	
 }
 
+/**/
 
 #restaurantResults {
-	background-color: #9AE80C;
+	background-color: #FF9719;
 	display: flex; 
 	flex-direction: column;
 }
 
-/*Magic happens*/
-
-#showData{
+#commentsSection{
 	display: flex;
 	width: 100%;
 	background-color: aliceblue;
+	justify-content: center  space-between;
 	
 }
 
-#comments,  #replies {
-	display: flex; 
-	flex-wrap: wrap;
-	
-	
-}
 
 #comments {
-	background-color: red;
-	flex-direction: row;
-	flex: 1;
+	display: flex; 
+	background-color: #0079B2;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center  space-between;
+
 }
 
 #replies{
-	background-color: yellowgreen;
-	flex-direction: row;
-	flex: 2;
+	display: flex; 
+	background-color: #FF9719;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center  space-between;
 }
 
-#maplocation {
-	background-color: #0079B2;
-	flex-direction: column;
-}
+
 
 #footer {
  display: flex;
