@@ -46,9 +46,13 @@ $(document).ready(function() {
 
   console.log("hi");
   $(".click").click(() => {
-    console.log("hi")
-    let click = $("#cuisine_id").val()
+
+    console.log("hi");
+
+    let click = $("#cuisine_id").val();
+
     console.log(click);
+
     $.ajax({
       method: 'POST',
       data: {
@@ -65,11 +69,11 @@ $(document).ready(function() {
         console.log(error)
       }
 
-    })
+    }); // end of ajax call
 
 
 
-  })
+  }); // end of click function
 
 
 
