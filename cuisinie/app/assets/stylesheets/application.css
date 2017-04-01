@@ -124,14 +124,13 @@
 
 /*| Navigation |*/
 
-
 #imglogo {
 	width: 90px;
 	height: 90px;
 }
 
 nav{
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -196,6 +195,8 @@ nav{
   margin: 0;
 }
 
+
+
 /* Color Theme stuff */
 
 body{
@@ -221,6 +222,7 @@ a{
   width: 700;
   height: 400;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  z-index: -5;
 }
 #slideshow > div {
   position: absolute;
@@ -234,6 +236,29 @@ a{
 
 /* Search Results */
 
+.theSearchBar{
+  margin-top: 5px;
+  margin-left: 30px;
+}
+
+.restContainer{
+  padding: 5px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border: 5px black;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  width: 700px;
+}
+
+.resImg{
+
+}
+
+.resName, .resAddr, .resCost, .resRate{
+  text-align: center;
+}
+
 .resName{
   color: darkorange;
 }
+
