@@ -18,7 +18,7 @@
 
 
 //start of document ready
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   console.log("ready!");
   arr = []
   const appender = (sRes) => {
@@ -47,9 +47,9 @@ $(document).ready(function() {
       })
     });
     $.each(arr, (index, value) => {
-      console.log(value)
+      console.log(value);
 
-    })
+    });
   };
 
   console.log("hi");
