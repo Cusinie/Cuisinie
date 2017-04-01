@@ -2,47 +2,60 @@
 
 
 <h1 class="resName">
-    <%= @restaurant["name"] %>
+    <%= @restaurant_hash["name"] %>
 </h1>
 
 <h2 class="resAddr">
-  <%= @restaurant["address"] %>
+  <%= @restaurant_hash["address"] %>
 </h2>
 
-<img src="<%= @restaurant["img_url"] %>" alt="img">
-</p>
-<p> Cost for two: <%= @restaurant["cost"] %>*
+<div class="lineMeUp">
 
-Add to favorites:  <button> Save </button>
-<div id="this">
+  <img class="resImg" src="<%= @restaurant["img_url"] %>" alt="img">
+
+  <div id="this">
+
+  </div>
+
 
 </div>
 
-<h4>Comment list:</h4>
+<div class="commentSection">
+  <h4>Comment list:</h4>
 
 
-<% @comments.each do |comment| %>
-<tb>
-<p>
-  <%= comment.content %>
-  <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
-    <%= f.submit "Delete"%>
+  <% @comments.each do |comment| %>
+  <tb>
+  <p>
+    <%= comment.content %>
+    <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
+      <%= f.submit "Delete"%>
+    <% end %>
+  </p>
   <% end %>
+
+  </tb>
+</div>
+
+<div class="costAndFavorite">
+  <p> Cost for two: <%= @restaurant_hash["cost"] %>* <br>
+
+  Add to favorites:  <button> Save </button> <br>
+</div>
+
+<div class="leaveAComment">
+  <h3>Leave a comment:</h3>
+
+  <%= render "comments/comments_form", comment: @comment %>
+
+  <br>
+</div>
+
+<div class="topSecretInformation">
+<p id="lat"><%= @restaurant_hash["lat"] %>
 </p>
-<% end %>
-
-</tb>
-
-<h3>Leave a comment:</h3>
-
-<%= render "comments/comments_form", comment: @comment %>
-
-<br>
-
-<p id="lat"><%= @restaurant["lat"] %>
+<p id="lon"><%= @restaurant_hash["lon"] %>
 </p>
-<p id="lon"><%= @restaurant["lon"] %>
-</p>
-<p><% @restaurant["restaurant_id"] %>
-
+<p><% @restaurant_hash["restaurant_id"] %>
+</div>
 

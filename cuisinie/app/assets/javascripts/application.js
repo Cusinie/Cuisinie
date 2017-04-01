@@ -102,20 +102,14 @@ $(document).on('turbolinks:load' , function() {
   // method chaining for animation
   setInterval( () => {
     $('#slideshow > div:first')
-      .fadeOut(1000)
+      .fadeOut(2000)
       .next()
       .fadeIn(2000)
       .end()
       .appendTo('#slideshow');
-  }, 3000);
+  }, 4000);
 
   // google maps needs vanilla javascript
-
-
-
-  //
-
-
   function initMap() {
 
     console.log("hey");

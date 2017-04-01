@@ -191,7 +191,7 @@ nav{
 #this{
 
   height: 40vh;
-  width: 60vw;
+  width: 20vw;
 
 }
 
@@ -200,7 +200,7 @@ nav{
 /* Color Theme stuff */
 
 body{
-  background-color: darkcyan;
+  background-image: url('http://i.imgur.com/OB9AfUt.png');
 }
 a{
   text-decoration: none;
@@ -251,7 +251,7 @@ a{
 }
 
 .resImg{
-
+  margin-left: 2%;
 }
 
 .resName, .resAddr, .resCost, .resRate{
@@ -267,4 +267,19 @@ a{
   color: rgb(255,140,0);
   margin: 0 auto;
   width: 300px;
+}
+
+/* Showpage helping stuff */
+.lineMeUp{
+  display: flex;
+  justify-content: space-around;
+}
+
+.commentSection, .costAndFavorite, .leaveAComment{
+  display: flex;
+  justify-content: center;
+}
+
+.topSecretInformation{
+  display: none;
 }
