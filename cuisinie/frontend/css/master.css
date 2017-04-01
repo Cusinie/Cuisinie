@@ -1,4 +1,7 @@
 @charset "UTF-8";
+/* CSS Document */
+
+/*Nav Bar standaard throught out all*/
 *, *:before, *:after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -10,15 +13,17 @@
   flex-direction: column;
 }
 
+/*Standardized things are:
+Container
+Nav*/
 
 
-/*| Navigation |*/
-
-#container {
+.container {
   display: flex;
   flex-direction: column;
 }
 
+/*| Navigation |*/
 
 #imglogo {
   width: 110px;
@@ -140,19 +145,72 @@ nav ul ul ul {
    background: #1b5175;
    }
 
-
-
-/*----------Uniqueness of every  page------*/
-
-/*Fav Page*/
-
-.fav {
-	background-color: #FF9719;
+/*----------Uniqueness of every page------*/
+/*---index----*/
+.index {
+	
 }
+
+#indexslideshowContainer {
+  display: flex;
+  position: relative;
+  background-color: red;
+  width: 100%;
+}
+
+#indexslideshow {
+  background-color: turquoise;
+	overflow: hidden;
+}
+
+#indexpic {
+	width: 100%;
+	height:40%;
+	align-content: center;
+	transform: translateZ(1px) scale(1.02);
+
+}
+
+#indextable {
+	overflow-x: auto;
+		white-space: nowrap;
+	width: 50%;
+	border: 0;
+}
+
+#indexproductDiv {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+	background-color: lawngreen;
+}
+
+#indexsearchFilter {
+  background-color: darkcyan;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+	justify-content: space-around;
+}
+
+#indexresults {
+  background-color: darkorange;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+/*-----Fav Page-------*/
+
+
 
 
 
 /*-------User Info---------*/
+
+.fav {
+	background-color: #FF9719;
+}
 
 #userInfo {
 	display: flex;
@@ -188,5 +246,111 @@ nav ul ul ul {
 }
 
 
+/*-------Show----------*/
+/*show class if needed*/
+.show {
+	
+}
+
+#showrestaurantContainer {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+#showrestaurant { 
+	display: flex;
+	width: 100%;
+	height: 100%;
+	flex-direction: row;
+	
+	
+}
+
+#showpic {
+	display: flex;
+	width: 40%;
+	height: 70%;
+	flex-direction: row;
+}
+
+#showmaplocation {
+	background-image: url(../images/subway_map.jpg);
+	background-color: #0079B2;
+	background-position: center;
+	width: 60%;
+	height: 100%;
+	display: flex;
+	
+}
+
+#showrestaurantResults {
+	background-color: #FF9719;
+	display: flex; 
+	flex-direction: column;
+}
+
+#showcommentsSection{
+	display: flex;
+	width: 100%;
+	background-color: aliceblue;
+	justify-content: center  space-between;
+	
+}
 
 
+#showcomments {
+	display: flex; 
+	background-color: #0079B2;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center  space-between;
+
+}
+
+#showreplies{
+	display: flex; 
+	background-color: #FF9719;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center  space-between;
+}
+
+
+
+
+/*----Favorites--------*/
+
+
+
+/*--------Sign-In------------*/
+
+.signin {
+	display: flex;
+	background-color: #FF9719;
+}
+#signinform {
+	background-color: #FF9719;
+}
+
+
+/*--------Sign-up------------*/
+
+.signup {
+	display: flex;
+	background-color: #FF9719;
+}
+#signupcontainer {
+	background-color: #FF9719;}
+
+
+@media (max-width: 220px){
+}
+
+@media (min-width : 221px ){
+}
+
+
+
+/*Anything extra just refer to the page and then add in some things that come yo yoour mind.*/

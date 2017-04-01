@@ -12,13 +12,26 @@
 
 /*| Navigation |*/
 
+#signincontainer {
+  display: flex;
+  flex-direction: column;
+	background-color: #FF9719;
+}
+
+
 #imglogo {
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
+  display: flex;
+	flex-direction: row;
+	flex: 1;
+
 }
 
 nav {
+  display: flex;
   position: relative;
+  flex-direction: column;
   top: 0;
   left: 0;
   width: 100%;
@@ -58,7 +71,7 @@ nav ul li {
 }
 
 nav ul li a {
-  display: block;
+  display: flex;
   padding: 30px 20px;
   color: #222;
   font-size: .9em;
@@ -92,10 +105,14 @@ nav ul ul ul {
   top: 0;
 }
 
-#footer {
- position: absolute;
-  bottom: 0%;
-  width: 100%;
-  box-shadow: 10px 10px 5px #888888;
-  border: 1px solid rgba(0,0,0,.1);	
+
+/*-----form-------*/
+
+
+.signin {
+	display: flex;
+	background-color: #FF9719;
+}
+#signinform {
+	background-color: #FF9719;
 }
