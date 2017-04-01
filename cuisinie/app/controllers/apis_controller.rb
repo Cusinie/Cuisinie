@@ -15,6 +15,16 @@ class ApisController < ApplicationController
     render json: @filtered_response
   end
 
+  def new
+    p "//////////////////////////"
+    p params['data']['user_id']
+    p params['data']['restaurant_id']
+    p User.find(params['data']['user_id'])
+    p Restaurant.find(params['data']['restaurant_id'])
+    p Restaurant.find(params['data']['restaurant_id']).build.(User.find(params['data']['user_id']))
+
+  end
+
   private
 
   def search

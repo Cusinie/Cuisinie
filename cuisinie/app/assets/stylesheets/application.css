@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
  #flexcanvas {
     width: 100%;
     height: 600px !important;
@@ -250,6 +251,8 @@ a{
   width: 700px;
 }
 
+
+
 .resImg{
 
 }
@@ -261,4 +264,5 @@ a{
 .resName{
   color: darkorange;
 }
+
 

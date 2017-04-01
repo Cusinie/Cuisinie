@@ -1,19 +1,23 @@
 
+<p id="name">
+    <%= @restaurant_hash["name"] %>
+
+</p>
+<p><%= @restaurant_hash["address"] %>
+</p>
+<img src="<%= @restaurant_hash["img_url"] %>" alt="img">
+</p>
+
+<p> Cost for two: <%= @restaurant_hash["cost"] %>*
+</p>
+<p class="user_id"><%= current_user.id%></p>
+<p class="rest_id"><%= @hi %></p>
 
 
-<p>
-    <%= @restaurant["name"] %>
-</p>
-<p><%= @restaurant["address"] %>
-</p>
-<img src="<%= @restaurant["img_url"] %>" alt="img">
-</p>
-<p> Cost for two: <%= @restaurant["cost"] %>*
-
-Add to favorites:  <button> Save </button>
 <div id="this">
 
 </div>
+<%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%>
 
 <h4>Comment list:</h4>
 
@@ -39,13 +43,13 @@ Add to favorites:  <button> Save </button>
 
 <%= link_to "Back to Search", restaurants_path %>
 
-<p id="lat"><%= @restaurant["lat"] %>
+<p id="lat"><%= @restaurant_hash["lat"] %>
 </p>
-<p id="lon"><%= @restaurant["lon"] %>
+<p id="lon"><%= @restaurant_hash["lon"] %>
 </p>
-<p><% @restaurant["restaurant_id"] %>
 
-</p>
+<p><%= @restaurant_hash["restaurant_id"] %></p>
+
 
 
 
@@ -147,3 +151,4 @@ Add to favorites:  <button> Save </button>
 
 
 </body>
+
