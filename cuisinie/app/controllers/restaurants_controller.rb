@@ -2,12 +2,10 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.new
     @restaurant = User.all
-    # @cuisines = HTTParty.get('https://developers.zomato.com/api/v2.1/search?', query: query, headers: headers)
     @cuisines_New = Cuisine.new
   end
 
   def show
-    # @restaurants = Restaurant.new(restaurant_params)
     p @restaurant = search.parsed_response
     p @restaurant_hash = { 'name' => @restaurant['name'],
                       'address' => @restaurant['location']['address'],
@@ -18,6 +16,7 @@ class RestaurantsController < ApplicationController
                       'lon' => @restaurant['location']['longitude'],
                       'restaurant_id' => @restaurant['id'],
                       'user_rating' => @restaurant['user_rating']['aggregate_rating'] }
+
 
 
         if Restaurant.exists?(name: @restaurant_hash['name'])
@@ -31,9 +30,10 @@ class RestaurantsController < ApplicationController
 
       @comments = Comment.all
       @comment = Comment.new
+
   end
 
-  # def favor; end
+
 
   def create
       @restaurant = Restaurant.new(@restaurant_hash)
@@ -48,6 +48,10 @@ class RestaurantsController < ApplicationController
 
 
   private
+
+  # def favorite_params
+  #   params.require :restaurant.permit(:name, :address, :img_url, :user_rating)
+  # end
 
   def search
     query = {
