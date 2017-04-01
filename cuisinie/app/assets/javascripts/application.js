@@ -18,7 +18,7 @@
 
 
 //start of document ready
-$(document).ready(function() {
+$(document).on('turbolinks:load' , function() {
   console.log("ready!");
   arr = []
   const appender = (sRes) => {
