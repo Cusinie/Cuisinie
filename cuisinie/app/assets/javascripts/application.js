@@ -129,11 +129,10 @@ $(document).on('turbolinks:load' , function() {
       zoom: 17,
       center: uluru
     });
-<<<<<<< HEAD
+
 
     // console.log(uluru);
-=======
->>>>>>> 889c9267b1b94681ccd9850835dee7377f613ec2
+
     let latitude = parseFloat(uluru.lat);
     let longitude = parseFloat(uluru.lng);
 

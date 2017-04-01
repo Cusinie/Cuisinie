@@ -17,9 +17,13 @@ class RestaurantsController < ApplicationController
                       'restaurant_id' => @restaurant['id'],
                       'user_rating' => @restaurant['user_rating']['aggregate_rating'] }
 <<<<<<< HEAD
+<<<<<<< HEAD
     @comments = Comment.all
     @comment = Comment.new
 =======
+=======
+
+>>>>>>> 2010338b2b92c11191c7e915aa694a2abb2195d5
 
 
         if Restaurant.exists?(name: @restaurant_hash['name'])
@@ -33,7 +37,11 @@ class RestaurantsController < ApplicationController
 
       @comments = Comment.all
       @comment = Comment.new
+<<<<<<< HEAD
 >>>>>>> 889c9267b1b94681ccd9850835dee7377f613ec2
+=======
+
+>>>>>>> 2010338b2b92c11191c7e915aa694a2abb2195d5
   end
 
 
