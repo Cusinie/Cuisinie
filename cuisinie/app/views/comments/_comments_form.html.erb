@@ -1,13 +1,13 @@
 <%= form_for(@comment) do |f| %>
-<% if current_user %>
-<%= f.text_field :author, value: "#{current_user.email}"%>
-<%= f.hidden_field :user_id, value: current_user.id %>
-<% else %>
-<%= f.text_field :author, value: "Annonymous"%>
-<% end %>
-<%= f.label :content %>
-<%= f.text_area :content, cols: 40, rows: 10 %>
-<%= f.hidden_field :restaurants_id, value: "#{params[:id]}" %>
-<%= f.submit %>
+  <% if current_user %>
+    <%= f.text_field :author, value: "#{current_user.email}"%>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  <% else %>
+    <%= f.text_field :author, value: "Annonymous"%>
+  <% end %>
+  <%= f.label :content %>
+  <%= f.text_area :content, cols: 40, rows: 10 %>
+  <%= f.hidden_field :restaurants_id, value: "#{params[:id]}" %>
+  <%= f.submit %>
 
 <% end %>
