@@ -167,7 +167,7 @@ nav ul ul ul {
 	width: 100%;
 	height:40%;
 	align-content: center;
-	transform: translateZ(1px) scale(1.02);
+	transform: scale(1.0);
 	opacity: 0.6;
 
 }
@@ -184,22 +184,20 @@ nav ul ul ul {
   width: 100%;
   flex-direction: row;
 	background-color: darkorange;
-	opacity: 0.9;
 }
 
 #indexsearchFilter {
   background-color: darkorange;
   display: flex;
-  flex-direction: column;
-  width: 40%;
-	justify-content: space-around;
+  
+  width: 1000%;
 	
 }
 
 #indexresults {
   background-color: darkcyan;
   display: flex;
-  flex-direction: column;
+
   width: 100%;
 
 }
@@ -245,41 +243,41 @@ nav ul ul ul {
 	
 }
 
-#showrestaurantContainer {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	
+/* Showpage helping stuff */
+.lineMeUp{
+  display: flex;
+  justify-content: space-around;
 }
+
 #showrestaurantName {
 	background-color: darkcyan;
 }
 
-#showrestaurant { 
-	display: flex;
+#showrestaurantContainer {
 	width: 100%;
 	height: 100%;
+	display: flex;
 	flex-direction: row;
-		
+	
+	
+}
+
+#showrestaurant { 
+
 }
 
 #showpic {
 	display: flex;
-	width: 40%;
-	height: 70%;
-	flex-direction: row;
-	transform: translateZ(1px) scale(1.02);
-	opacity: 0.6;
+	width: 80%;
+	height: 50%;
+	
 }
 
 #showmaplocation {
-	background-image: url(../images/subway_map.jpg);
-	background-color: #0079B2;
-	background-position: center;
-	width: 60%;
-	height: 100%;
+	background-color: antiquewhite;
 	display: flex;
+	width: 100%;
+	height: 100%;
 	
 }
 
@@ -347,7 +345,7 @@ nav ul ul ul {
 
 
 @media (max-width: 320px){
-	#indexproductDiv, #showrestaurant {
+	#indexproductDiv, #showrestaurantContainer {
 		flex-direction: column;
 		
 	}
@@ -364,3 +362,12 @@ nav ul ul ul {
 
 
 /*Anything extra just refer to the page and then add in some things that come yo yoour mind.*/
+
+/*
+.commentSection, .costAndFavorite, .leaveAComment{
+  display: flex;
+  justify-content: center;
+}
+.topSecretInformation{
+  display: none;
+}*/
