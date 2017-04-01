@@ -37,7 +37,7 @@ Add to favorites:  <button> Save </button>
 <br>
 
 
-<%= link_to "Back to Home", restaurant_path %>
+<%= link_to "Back to Search", restaurants_path %>
 
 <p id="lat"><%= @restaurant["lat"] %>
 </p>
@@ -59,7 +59,7 @@ Add to favorites:  <button> Save </button>
     <nav role="navigation">
       <img id="imglogo" src="http://i.imgur.com/oxokbLO.png">
       <ul>
-        <li><a href="#">Home</a></li>
+          <li><%= link_to "Home", restaurants_path %></li>
         <li><a href="#">Favorites</a>
 <!--
           <ul>
