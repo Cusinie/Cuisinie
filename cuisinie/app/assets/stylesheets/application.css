@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD
+=======
 
  #flexcanvas {
     width: 100%;
@@ -249,6 +251,7 @@ a{
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   width: 700px;
 }
+<<<<<<< HEAD
 
 .resImg{
 
@@ -262,3 +265,6 @@ a{
   color: darkorange;
 }
 
+=======
+>>>>>>> ff5555fa2fa531a43096d23c707e15a4a30ffe3c
+>>>>>>> 889c9267b1b94681ccd9850835dee7377f613ec2

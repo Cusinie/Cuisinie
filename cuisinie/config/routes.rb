@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  root to: 'homes#index'
+
   root to: 'restaurants#index'
   # resources literally creates routes for each controller's method
   resources :restaurants
