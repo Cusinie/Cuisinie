@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
     @comment.restaurant_id = Restaurant.show.id
   end
+
   def create
     p
     @comment = Comment.new(comment_params)
@@ -16,19 +17,16 @@ class CommentsController < ApplicationController
     end
 end
 
-def destroy
-  @comment = Comment.find(params[:id])
-  if @comment.destroy
-    redirect_to :back
-  else
-    redirect_to :back
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_to :back
+    else
+      redirect_to :back
+    end
   end
-end
 
-def comment_params
+  def comment_params
     params.require(:comment).permit(:author, :content, :user_id, :restaurants_id)
-  end
-
-
-
+    end
 end
