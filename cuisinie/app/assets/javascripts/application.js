@@ -18,11 +18,17 @@
 
 
 //start of document ready
-$(document).on('turbolinks:load', function() {
+
+$(document).on('turbolinks:load' , function() {
+
   console.log("ready!");
+
   arr = []
+
   const appender = (sRes) => {
+    // hide the previous search
     $('.restContainer').hide();
+    // creating elements to append to the DOM
     $.each(sRes, (ind, val) => {
       const $container = $('<div class=\"restContainer\"></div>');
       const $name = $('<h1 class=\"resName\"></h1>').text(val.name);
