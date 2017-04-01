@@ -12,7 +12,7 @@
 
     <body>
         <nav role="navigation">
-          <img id="imglogo" src="http://i.imgur.com/oxokbLO.png">
+          <a href="/" title="Home"><img id="imglogo" src="http://i.imgur.com/oxokbLO.png"></a>
 
             <ul>
                 <li><%= link_to "Home", restaurants_path %></li>
@@ -29,9 +29,11 @@
                 <% end %>
             </ul>
         </nav>
+        <br><br><br><br><br><br>
 
         <%= render "layouts/flash" %>
-
-        <%= yield %>
+        <div class="theRealPage">
+            <%= yield %>
+        </div>
     </body>
 </html>
