@@ -1,37 +1,12 @@
 <!-- This is the form for selecting the type of food you want to search by. -->
-<%= form_for(@cuisine) do |f| %>
+<%= form_for(@cuisines_New, :url =>restaurants_path ) do |f| %>
 
-  <%= f.radio_button_tag(:cuisine_type, "193") %>
-  <%= f.label_tag(:cuisine_type_193, "BBQ") %>
+<%= f.label :name %>
+<%= f.collection_select(:id,Cuisine.all, :value, :name)%>
+<%= button_tag "Search" , :type=> 'button' ,:class=> 'click'%>
 
-  <%= f.radio_button_tag(:cuisine_type, "227") %>
-  <%= f.label_tag(:cuisine_type_227, "Bar Food") %>
+<% if current_user.present? %>
 
-  <%= f.radio_button_tag(:cuisine_type, "168") %>
-  <%= f.label_tag(:cuisine_type_168, "Caribbean") %>
-
-  <%= f.radio_button_tag(:cuisine_type, "25") %>
-  <%= f.label_tag(:cuisine_type_25, "Chinese") %>
-
-  <%= f.radio_button_tag(:cuisine_type, "55") %>
-  <%= f.label_tag(:cuisine_type_55, "Italian") %>
-
-  <%= f.radio_button_tag(:cuisine_type, "148") %>
-  <%= f.label_tag(:cuisine_type_148, "Indian") %>
-
-  <%= f.radio_button_tag(:cuisine_type, "60") %>
-  <%= f.label_tag(:cuisine_type_60, "Japanese") %>
-
-  <%= f.radio_button_tag(:cuisine_type, "150") %>
-  <%= f.label_tag(:cuisine_type_150, "Tex-Mex") %>
-
-  <%= f.radio_button_tag(:cuisine_type, "177") %>
-  <%= f.label_tag(:cuisine_type_177, "Sushi") %>
-
-  <%= f.radio_button_tag(:cuisine_type, "308") %>
-  <%= f.label_tag(:cuisine_type_308, "Vegetarian") %>
-  <%= f.submit %>
-
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<% end %>
 <% end %>

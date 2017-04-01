@@ -6,6 +6,8 @@
 
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEI2xahu1c3KN5YYABaD2c6w8aa7sK4J8&libraries=geometry,places">
+        </script>
     </head>
 
     <body>
@@ -13,10 +15,10 @@
           <img id="imglogo" src="http://i.imgur.com/oxokbLO.png">
 
             <ul>
-                <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "Home", restaurants_path %></li>
                 <% if current_user %>
                 <li>
-                    Profile needs to go here. link isnt working,
+                    Favorites needs to go here. link isnt working,
                     <%= current_user.email %></li>
                 <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
                 </li>

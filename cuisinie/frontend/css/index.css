@@ -132,6 +132,11 @@ nav ul ul ul {
 
 /*Where the magic happens*/
 
+table {
+	overflow-x: auto;
+		white-space: nowrap;
+}
+
 #productDiv {
   display: flex;
   width: 100%;
