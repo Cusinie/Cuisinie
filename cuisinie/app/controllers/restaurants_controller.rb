@@ -1,31 +1,64 @@
 class RestaurantsController < ApplicationController
-
-
   def index
+    @restaurants = Restaurant.new
     @restaurant = User.all
+    # @cuisines = HTTParty.get('https://developers.zomato.com/api/v2.1/search?', query: query, headers: headers)
+    @cuisines_New = Cuisine.new
   end
 
-  def search
-    @cuisine = HTTParty.get("https://developers.zomato.com/api/v2.1/search?", :query => query, :headers => headers)
+  def show
+    # @restaurants = Restaurant.new(restaurant_params)
+    p @restaurant = search.parsed_response
+    p @restaurant_hash = { 'name' => @restaurant['name'],
+                      'address' => @restaurant['location']['address'],
+                      'img_url' => @restaurant['featured_image'],
+                      'cost' => @restaurant['average_cost_for_two'],
+                      "menu"=> @restaurant['menu_url'],
+                      'lat' => @restaurant['location']['latitude'],
+                      'lon' => @restaurant['location']['longitude'],
+                      'restaurant_id' => @restaurant['id'],
+                      'user_rating' => @restaurant['user_rating']['aggregate_rating'] }
+
+
+        if Restaurant.exists?(name: @restaurant_hash['name'])
+            @restaurant_hash = Restaurant.find_by(name: @restaurant_hash['name'])
+            @hi = @restaurant_hash.id
+          else
+            p @hi = create
+            p "......................................"
+            p @hi
+        end
+
+      @comments = Comment.all
+      @comment = Comment.new
   end
+
+  # def favor; end
+
+  def create
+      @restaurant = Restaurant.new(@restaurant_hash)
+      if @restaurant.save
+        p @restaurant.id
+          @id = @restaurant.id
+          else
+        p "not saved"
+       end
+
+  end
+
 
   private
 
-  def query
+  def search
     query = {
-      "entity_id" => 280,
-      "entity_type" => "city",
-      "cuisines" => cuisine_params
+      'res_id' => params[:id]
     }
-  end
-  # HTTParty.get("https://developers.zomato.com/api/v2.1/search?", query = {"entity_id" => 280, "entity_type" => "city", "cuisines" => 193}, headers = {"user-key" => "c6dc40392af08897eafe323966c8dcf1"})
-  def headers
-    header = {
-      "user-key" => "c6dc40392af08897eafe323966c8dcf1"
-    }
+    @search = HTTParty.get('https://developers.zomato.com/api/v2.1/restaurant?', query: query, headers: headers)
   end
 
-  def cuisine_params
-    params.require(:cuisine).permit(:cuisine_type)
+  def headers
+    header = {
+      'user-key' => 'c6dc40392af08897eafe323966c8dcf1'
+    }
   end
 end

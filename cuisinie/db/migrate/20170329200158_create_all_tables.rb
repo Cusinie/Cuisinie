@@ -8,7 +8,8 @@ class CreateAllTables < ActiveRecord::Migration[5.0]
         t.string :menu
         t.string :lat
         t.string :lon
-        t.belongs_to :user, index: true
+        t.string :restaurant_id
+        t.string :user_rating
         t.timestamps
     end
 
@@ -23,6 +24,12 @@ class CreateAllTables < ActiveRecord::Migration[5.0]
     create_table :cuisines do |t|
       t.string  :name
       t.string  :value
+      t.timestamps
+    end
+
+    create_table :restaurants_users do |t|
+        t.belongs_to :user, index: true
+        t.belongs_to :restaurant, index: true
       t.timestamps
     end
 
