@@ -269,6 +269,8 @@ nav ul ul ul {
 	width: 40%;
 	height: 70%;
 	flex-direction: row;
+	transform: translateZ(1px) scale(1.02);
+	opacity: 0.6;
 }
 
 #showmaplocation {
@@ -307,7 +309,8 @@ nav ul ul ul {
 
 #showsubmitcommentbutton {
 	display: flex;
-	width: 11%;
+	width: 15%;
+	text-align: center
 }
 
 #showreplies{
