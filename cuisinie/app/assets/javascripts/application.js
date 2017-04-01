@@ -26,10 +26,11 @@ $(document).on('turbolinks:load' , function() {
   arr = []
 
   const appender = (sRes) => {
-    // hide the previous search
-    $('.restContainer').hide();
+    // remove the previous search
+    $('.restContainer').remove();
     // creating elements to append to the DOM
     $.each(sRes, (ind, val) => {
+      // creating the elements we need
       const $container = $('<div class=\"restContainer\"></div>');
       const $name = $('<h1 class=\"resName\"></h1>').text(val.name);
       const $image = $('<img class=\"resImg\" src=\"' + val.img_url + '\">');
@@ -37,6 +38,7 @@ $(document).on('turbolinks:load' , function() {
       const $cost = $('<p class=\"resCost\"></p>').text("Avg cost for 2: " + val.cost);
       const $rating = $('<p class=\"resRate\"></p>').text("Avg user rating: " + val.user_rating);
       const $id = $('<a href=\"/restaurants/' + val.restaurant_id + '\" />').val(val.restaurant_id);
+      // appending them to the page
       $id.appendTo($container);
       $name.appendTo($id);
       $image.appendTo($id);
@@ -47,25 +49,28 @@ $(document).on('turbolinks:load' , function() {
       $container.appendTo('body');
       // console.log(container,name,image,addr,cost,rating);
       console.log(val);
+
       arr.push({
         "lat": val.lat,
         "lon": val.lon
-      })
-    });
+      }); // end of filling array with location of each searched restaurant
+
+    }); // end of looping over the search results
+
     $.each(arr, (index, value) => {
       console.log(value);
 
-    });
-  };
+    }); // making sure the array is there
 
-  console.log("hi");
+  }; // end of appender function
+
   $(".click").click(() => {
 
     console.log("hi");
 
     let click = $("#cuisine_id").val();
 
-    console.log(click);
+    console.log(click); // making sure we're sending the right cuisine type
 
     $.ajax({
       method: 'POST',
@@ -89,6 +94,19 @@ $(document).on('turbolinks:load' , function() {
 
   }); // end of click function
 
+  // slideshow stuff.
+  // Hide the images
+  $("#slideshow > div:gt(0)").hide();
+
+  // method chaining for animation
+  setInterval( () => {
+    $('#slideshow > div:first')
+      .fadeOut(1000)
+      .next()
+      .fadeIn(2000)
+      .end()
+      .appendTo('#slideshow');
+  }, 3000);
 
   //   coordinates = [{lat:40.8182972222, lng: -73.9607083333, name: "Jamal"},
   //   {lat: 40.7422410000, lng: -73.9838080000, name: "Jam"},
@@ -173,19 +191,24 @@ $(document).on('turbolinks:load' , function() {
   //
 
   function initMap() {
+
     console.log("hey");
-    console.log(document.getElementById('lat').textContent)
+
     var uluru = {
       lat: parseFloat(document.getElementById('lat').textContent),
       lng: parseFloat(document.getElementById('lon').textContent)
     };
+
     var map = new google.maps.Map(document.getElementById('this'), {
       zoom: 11,
       center: uluru
     });
-    console.log(uluru)
+
+    // console.log(uluru);
     let latitude = parseFloat(uluru.lat);
     let longitude = parseFloat(uluru.lng);
+
+    // I mean, it's redundant to tell you what this is
     let restaurantLocation = {
       lat: latitude,
       lng: longitude
@@ -207,10 +230,13 @@ $(document).on('turbolinks:load' , function() {
     marker.addListener('mouseover', function() {
       infoWindow.open(infoWindow.setContent("Hi"), marker);
     });
+
     marker.addListener('mouseout', function() {
       infoWindow.close(infoWindow.setContent("By"), marker);
     });
-  }
+
+  } // end of initMap function
+
   initMap();
 
 }); //end of document ready

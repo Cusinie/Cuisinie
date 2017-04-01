@@ -1,4 +1,4 @@
-<h1>Welcome to Cuisinies</h1>
+<h1 class="wlcm">Welcome to Cuisinies</h1>
 <!-- Main Container -->
 <div id="container" class="flexChild columnParent">
 	<!-- Container Starts   -->
@@ -21,10 +21,35 @@
 		</div>
 
 		<!--  Slideshow    -->
-		<div id="slideshow" class="flexChild"><img src="https://b.zmtcdn.com/data/pictures/3/16780333/dbd5172aeb47f0c0bdc88e4892028cab_featured_v2.jpg" width="700" height="400" alt=""/></div>
+		<div id="slideshow" class="flexChild">
+			<div>
+				<img src="https://b.zmtcdn.com/data/pictures/3/16780333/	dbd5172aeb47f0c0bdc88e4892028cab_featured_v2.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/qNzIyqa.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/L8Wf4vY.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/mxIQMMi.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/fXCARJH.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/Wk9Z9bO.jpg" />
+			</div>
+			<div>
+				<img src="http://i.imgur.com/wht9Chf.jpg" />
+			</div>
+		</div>
 	</div>
+
 	<!-- Filter and Results    -->
-	<%= render "cuisine_search_form"%>
+	<div class="theSearchBar">
+		<%= render "cuisine_search_form"%>
+	</div>
 	<div id="bottomColumnParent" class="flexChild columnParent">
 		<div id="bottomrowParent" class="flexChild rowParent">
 			<!--  Filter  -->
@@ -32,15 +57,9 @@
 				<p>Select Your FIlters
 				</p>
 				<div id="locationFilter" class="flexChild columnParent">
-					<p>location filter
-					</p>
 					<div id="cuisineFilter" class="flexChild">
-						<p>cuisine filter
-						</p>
 					</div>
 					<div id="priceRange" class="flexChild">
-						<p>price range
-						</p>
 					</div>
 				</div>
 				<!--  Results   -->

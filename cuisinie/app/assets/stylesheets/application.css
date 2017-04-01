@@ -120,6 +120,8 @@
   font-family: 'Lato', sans-serif;
 }
 
+
+
 /*| Navigation |*/
 
 
@@ -188,8 +190,50 @@ nav{
             top:0;
           }
 #this{
-  
+
   height: 40vh;
   width: 30vw;
   margin: 0;
+}
+
+/* Color Theme stuff */
+
+body{
+  background-color: darkcyan;
+}
+a{
+  text-decoration: none;
+}
+
+/* Welcome */
+
+.wlcm{
+  margin: 0 auto;
+  color: darkorange;
+}
+
+/* Slideshow */
+
+#slideshow{
+  margin: 0 auto;
+  position: relative;
+  padding: 180px 350px;
+  width: 700;
+  height: 400;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+#slideshow > div {
+  position: absolute;
+  width: 700;
+  height: 400;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+
+/* Search Results */
+
+.resName{
+  color: darkorange;
 }
