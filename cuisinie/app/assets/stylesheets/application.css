@@ -262,3 +262,13 @@ a{
   color: darkorange;
 }
 
+/* User Login stuff */
+.superDuperLoginStuff, .superDuperSignupStuff{
+  color: rgb(255,140,0);
+  margin: 0 auto;
+  width: 300px;
+}
+
+
+
+
