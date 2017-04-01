@@ -94,6 +94,7 @@ $(document).on('turbolinks:load' , function() {
 
   }); // end of click function
 
+
   // slideshow stuff.
   // Hide the images
   $("#slideshow > div:gt(0)").hide();
@@ -109,6 +110,12 @@ $(document).on('turbolinks:load' , function() {
   }, 3000);
 
   // google maps needs vanilla javascript
+
+
+
+  //
+
+
   function initMap() {
 
     console.log("hey");
@@ -140,12 +147,7 @@ $(document).on('turbolinks:load' , function() {
     var infoWindow = new google.maps.InfoWindow({
       map: map
     });
-    //         var pos = {
-    //   lat: coordinate.lat,
-    //   lng: coordinate.lng
-    // };
-    // console.log(pos)
-    // infoWindow.setPosition(pos);
+
     marker.addListener('mouseover', function() {
       infoWindow.open(infoWindow.setContent("Hi"), marker);
     });
