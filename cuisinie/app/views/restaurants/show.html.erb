@@ -1,26 +1,16 @@
-
 <h1 class="resName">
     <%= @restaurant_hash["name"] %>
 </h1>
-
 <h2 class="resAddr">
   <%= @restaurant_hash["address"] %>
 </h2>
-
 <div class="lineMeUp">
-
-  <img class="resImg" src="<%= @restaurant["img_url"] %>" alt="img">
-
+  <img class="resImg" src="<%= @restaurant_hash["img_url"] %>" alt="img">
   <div id="this">
-
   </div>
-
-
 </div>
-
 <div class="commentSection">
   <h4>Comment list:</h4>
-
   <% @comments.each do |comment| %>
   <tb>
   <p>
@@ -30,33 +20,27 @@
     <% end %>
   </p>
   <% end %>
-
   </tb>
 </div>
-
 <div class="costAndFavorite">
-
   <p> Cost for two: <%= @restaurant_hash["cost"] %>* <br>
-
+    <% if current_user.present? %>
+    <%= link_to "Favorites", user_path(id: current_user.id) %>
   Add to favorites:  <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%> <br>
 </div>
-
 <div class="leaveAComment">
-
   <h3>Leave a comment:</h3>
-
   <%= render "comments/comments_form", comment: @comment %>
-
   <br>
 </div>
 <div class="topSecretInformation">
-  <% if current_user.present? %>
 
-    <p class="user_id"><%= current_user.id%></p>
-    <p class="rest_id"><%= @hi %></p>
+<p class="user_id"><%= current_user.id%></p>
+<p class="rest_id"><%= @hi %></p>
+<p id="lat"><%= @restaurant_hash["lat"] %>
+</p>
+<p id="lon"><%= @restaurant_hash["lon"] %>
+</p>
+<p><% @restaurant_hash["restaurant_id"] %>
   <% end %>
-  <p id="lat"><%= @restaurant_hash["lat"] %></p>
-  <p id="lon"><%= @restaurant_hash["lon"] %></p>
-
-  <p><% @restaurant_hash["restaurant_id"] %></p>
 </div>

@@ -95,8 +95,6 @@ $(document).on('turbolinks:load' , function() {
   }); // end of click function
 
 
-
-
   // google maps needs vanilla javascript
   function initMap() {
 
