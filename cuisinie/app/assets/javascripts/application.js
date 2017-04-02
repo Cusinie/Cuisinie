@@ -95,6 +95,20 @@ $(document).on('turbolinks:load' , function() {
   }); // end of click function
 
 
+  // slideshow stuff.
+  // Hide the images
+  $("#slideshow > div:gt(0)").hide();
+
+  // method chaining for animation
+  setInterval( () => {
+    $('#slideshow > div:first')
+      .fadeOut(1000)
+      .next()
+      .fadeIn(2000)
+      .end()
+      .appendTo('#slideshow');
+  }, 2500);
+
   // google maps needs vanilla javascript
   function initMap() {
 
@@ -167,5 +181,9 @@ $(document).on('turbolinks:load' , function() {
     }); // end of ajax call
   });
 
+  // flash notifications need some style
+   $('div.flash').delay(500).slideDown('normal', function() {
+      $(this).delay(2500).slideUp();
+  });
 
 }); //end of document ready

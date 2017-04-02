@@ -14,7 +14,31 @@
  *= require_self
  */
 
+/* Flash notifications */
+div.flash {
+    background-color: antiquewhite;
+    display: none;
+    max-width: 500px;
+    margin: 0 auto;
+}
+div.notice {
+    border: 1px solid green;
+}
+div.alert {
+    border: 1px solid red;
+}
+p.flash-text {
+    text-align: center;
+    font-weight: bold;
+}
+p.notice {
+    color: green;
+}
+p.alert {
+    color: red;
+}
 
+/* entire website stuff */
  #flexcanvas {
     width: 100%;
     height: 600px !important;
@@ -194,7 +218,7 @@ nav{
   height: 40vh;
   width: 20vw;
   z-index: -5;
-
+/* the z index is messing with the functionality of */
 }
 
 
