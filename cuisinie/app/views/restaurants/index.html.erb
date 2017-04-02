@@ -23,25 +23,25 @@
 		<!--  Slideshow    -->
 		<div id="slideshow" class="flexChild">
 			<div>
-				<img src="https://b.zmtcdn.com/data/pictures/3/16780333/	dbd5172aeb47f0c0bdc88e4892028cab_featured_v2.jpg" />
+				<img class="foodArt" src="https://b.zmtcdn.com/data/pictures/3/16780333/	dbd5172aeb47f0c0bdc88e4892028cab_featured_v2.jpg" />
 			</div>
 			<div>
-				<img src="http://i.imgur.com/qNzIyqa.jpg" />
+				<img class="foodArt" src="http://i.imgur.com/qNzIyqa.jpg" />
 			</div>
 			<div>
-				<img src="http://i.imgur.com/L8Wf4vY.jpg" />
+				<img class="foodArt" src="http://i.imgur.com/L8Wf4vY.jpg" />
 			</div>
 			<div>
-				<img src="http://i.imgur.com/mxIQMMi.jpg" />
+				<img class="foodArt" src="http://i.imgur.com/mxIQMMi.jpg" />
 			</div>
 			<div>
-				<img src="http://i.imgur.com/fXCARJH.jpg" />
+				<img class="foodArt" src="http://i.imgur.com/fXCARJH.jpg" />
 			</div>
 			<div>
-				<img src="http://i.imgur.com/Wk9Z9bO.jpg" />
+				<img class="foodArt" src="http://i.imgur.com/Wk9Z9bO.jpg" />
 			</div>
 			<div>
-				<img src="http://i.imgur.com/wht9Chf.jpg" />
+				<img class="foodArt" src="http://i.imgur.com/wht9Chf.jpg" />
 			</div>
 		</div>
 	</div>
@@ -76,5 +76,22 @@
 		</div>
 	</div>
 </div>
-</body>
-</html>
+<script type="text/javascript">
+
+
+  // slideshow stuff.
+  // Hide the images
+  $("#slideshow > div:gt(0)").hide();
+
+  // method chaining for animation
+  setInterval( () => {
+    $('#slideshow > div:first')
+      .fadeOut(2000)
+      .next()
+      .fadeIn(2000)
+      .end()
+      .appendTo('#slideshow');
+  }, 3000);
+
+
+</script>
