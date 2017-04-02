@@ -7,18 +7,41 @@ class RestaurantsController < ApplicationController
 
   def show
     p @restaurant = search.parsed_response
-    p @restaurant = { 'name' => @restaurant['name'],
+    p @restaurant_hash = { 'name' => @restaurant['name'],
                       'address' => @restaurant['location']['address'],
                       'img_url' => @restaurant['featured_image'],
                       'cost' => @restaurant['average_cost_for_two'],
+                      "menu"=> @restaurant['menu_url'],
                       'lat' => @restaurant['location']['latitude'],
                       'lon' => @restaurant['location']['longitude'],
                       'restaurant_id' => @restaurant['id'],
                       'user_rating' => @restaurant['user_rating']['aggregate_rating'] }
-    @comments = Comment.all
-    @comment = Comment.new
+
+
+        if Restaurant.exists?(name: @restaurant_hash['name'])
+            @restaurant_hash = Restaurant.find_by(name: @restaurant_hash['name'])
+            @hi = @restaurant_hash.id
+          else
+            @hi = create
+        end
+      @comments = Comment.all
+      @comment = Comment.new
+
   end
 
+
+
+  def create
+    p @restaurant_hash
+      @restaurant = Restaurant.new(@restaurant_hash)
+      if @restaurant.save
+        p @restaurant.id
+          @id = @restaurant.id
+      else
+        p "not saved"
+       end
+
+  end
 
 
   private

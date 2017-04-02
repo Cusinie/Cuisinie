@@ -1,6 +1,4 @@
 
-
-
 <h1 class="resName">
     <%= @restaurant_hash["name"] %>
 </h1>
@@ -23,7 +21,6 @@
 <div class="commentSection">
   <h4>Comment list:</h4>
 
-
   <% @comments.each do |comment| %>
   <tb>
   <p>
@@ -38,24 +35,28 @@
 </div>
 
 <div class="costAndFavorite">
+
   <p> Cost for two: <%= @restaurant_hash["cost"] %>* <br>
 
-  Add to favorites:  <button> Save </button> <br>
+  Add to favorites:  <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%> <br>
 </div>
 
 <div class="leaveAComment">
+
   <h3>Leave a comment:</h3>
 
   <%= render "comments/comments_form", comment: @comment %>
 
   <br>
 </div>
-
 <div class="topSecretInformation">
-<p id="lat"><%= @restaurant_hash["lat"] %>
-</p>
-<p id="lon"><%= @restaurant_hash["lon"] %>
-</p>
-<p><% @restaurant_hash["restaurant_id"] %>
-</div>
+  <% if current_user.present? %>
 
+    <p class="user_id"><%= current_user.id%></p>
+    <p class="rest_id"><%= @hi %></p>
+  <% end %>
+  <p id="lat"><%= @restaurant_hash["lat"] %></p>
+  <p id="lon"><%= @restaurant_hash["lon"] %></p>
+
+  <p><% @restaurant_hash["restaurant_id"] %></p>
+</div>
