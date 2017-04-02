@@ -95,27 +95,8 @@ $(document).on('turbolinks:load' , function() {
   }); // end of click function
 
 
-  // slideshow stuff.
-  // Hide the images
-  $("#slideshow > div:gt(0)").hide();
-
-  // method chaining for animation
-  setInterval( () => {
-    $('#slideshow > div:first')
-      .fadeOut(1000)
-      .next()
-      .fadeIn(2000)
-      .end()
-      .appendTo('#slideshow');
-  }, 3000);
 
   // google maps needs vanilla javascript
-
-
-
-  //
-
-
   function initMap() {
 
     console.log("hey");
