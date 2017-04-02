@@ -215,7 +215,7 @@ $(document).on('turbolinks:load' , function() {
     $.ajax({
       method: 'GET',
       data: {
-        data: {
+         restaurantsuser:{
           "user_id": user_id,
           "restaurant_id" :restaurant_id
         }
