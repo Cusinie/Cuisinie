@@ -261,23 +261,23 @@ nav ul ul ul {
 	
 	
 }
-
+/*image is the div background-image*/
 #showrestaurant { 
-
-}
-
-#showpic {
+	background-image: url("http://imgur.com/5f3WTBD.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
 	display: flex;
-	width: 80%;
-	height: 50%;
+	width: 115.9vw;
 	
+
 }
+
 
 #showmaplocation {
 	background-color: antiquewhite;
 	display: flex;
-	width: 100%;
-	height: 100%;
+	width: 115.9vw;
+	
 	
 }
 
@@ -344,7 +344,7 @@ nav ul ul ul {
 	background-color: #FF9719;}
 
 
-@media (max-width: 320px){
+@media (max-width: 420px){
 	#indexproductDiv, #showrestaurantContainer {
 		flex-direction: column;
 		
@@ -352,6 +352,7 @@ nav ul ul ul {
 	
 	#showrestaurant {
 		width: 100%;
+		width: 322500px;
 	}
 	.button {
 		font-size: 20px;
