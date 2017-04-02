@@ -111,6 +111,13 @@ nav ul ul ul {
   top: 0;
 }
 
+/*Text Area*/
+textarea{
+ width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /*-----------------Button----*/
 
 .button {
@@ -121,7 +128,7 @@ nav ul ul ul {
    background: -moz-linear-gradient(top, #00aaff, #00aaff);
    background: -ms-linear-gradient(top, #00aaff, #00aaff);
    background: -o-linear-gradient(top, #00aaff, #00aaff);
-   padding: 9px 18px;
+   padding: 1vw;
    -webkit-border-radius: 16px;
    -moz-border-radius: 16px;
    border-radius: 16px;
@@ -130,7 +137,7 @@ nav ul ul ul {
    box-shadow: rgba(0,0,0,1) 0 1px 0;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: white;
-   font-size: 13px;
+   font-size: 11vw;
    font-family: 'Lato', sans-serif;
    text-decoration: none;
    vertical-align: middle;
@@ -351,8 +358,7 @@ nav ul ul ul {
 	}
 	
 	#showrestaurant {
-		width: 100%;
-		width: 322500px;
+	
 	}
 	.button {
 		font-size: 20px;
