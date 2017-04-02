@@ -24,6 +24,8 @@
 </div>
 <div class="costAndFavorite">
   <p> Cost for two: <%= @restaurant_hash["cost"] %>* <br>
+    <% if current_user.present? %>
+    <%= link_to "Favorites", user_path(id: current_user.id) %>
   Add to favorites:  <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%> <br>
 </div>
 <div class="leaveAComment">
@@ -32,7 +34,7 @@
   <br>
 </div>
 <div class="topSecretInformation">
-<% if current_user.present? %>
+
 <p class="user_id"><%= current_user.id%></p>
 <p class="rest_id"><%= @hi %></p>
 <p id="lat"><%= @restaurant_hash["lat"] %>
