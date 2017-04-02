@@ -126,11 +126,13 @@ $(document).on('turbolinks:load' , function() {
     };
 
     var map = new google.maps.Map(document.getElementById('this'), {
-      zoom: 11,
+      zoom: 17,
       center: uluru
     });
 
+
     // console.log(uluru);
+
     let latitude = parseFloat(uluru.lat);
     let longitude = parseFloat(uluru.lng);
 
@@ -139,7 +141,6 @@ $(document).on('turbolinks:load' , function() {
       lat: latitude,
       lng: longitude
     };
-    console.log(restaurantLocation);
     var marker = new google.maps.Marker({
       position: restaurantLocation,
       map: map
@@ -149,7 +150,7 @@ $(document).on('turbolinks:load' , function() {
     });
 
     marker.addListener('mouseover', function() {
-      infoWindow.open(infoWindow.setContent("Hi"), marker);
+      infoWindow.open(infoWindow.setContent($('#name').text()), marker);
     });
 
     marker.addListener('mouseout', function() {
@@ -159,5 +160,32 @@ $(document).on('turbolinks:load' , function() {
   } // end of initMap function
 
   initMap();
+
+    $(".favorite").click(() => {
+
+    console.log("hi");
+
+    let user_id = $(".user_id").text();
+    let restaurant_id = $(".rest_id").text();
+
+    $.ajax({
+      method: 'GET',
+      data: {
+        restaurantsuser: {
+          "user_id": user_id,
+          "restaurant_id" :restaurant_id
+        }
+      },
+      url: '/apis/new',
+      success: (data) => {
+        // console.log(data)
+      },
+      error: (jqx, error) => {
+        console.log(error)
+      }
+
+    }); // end of ajax call
+  });
+
 
 }); //end of document ready

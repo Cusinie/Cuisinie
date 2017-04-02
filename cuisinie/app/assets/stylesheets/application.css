@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
  #flexcanvas {
     width: 100%;
     height: 600px !important;
@@ -191,7 +192,8 @@ nav{
 #this{
 
   height: 40vh;
-  width: 60vw;
+  width: 20vw;
+  z-index: -5;
 
 }
 
@@ -200,7 +202,7 @@ nav{
 /* Color Theme stuff */
 
 body{
-  background-color: darkcyan;
+  background-image: url('http://i.imgur.com/OB9AfUt.png');
 }
 a{
   text-decoration: none;
@@ -268,6 +270,22 @@ a{
   margin: 0 auto;
   width: 300px;
 }
+
+/* Showpage helping stuff */
+.lineMeUp{
+  display: flex;
+  justify-content: space-around;
+}
+
+.commentSection, .costAndFavorite, .leaveAComment{
+  display: flex;
+  justify-content: center;
+}
+.topSecretInformation{
+  display: none;
+}
+
+
 
 
 
