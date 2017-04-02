@@ -192,7 +192,8 @@ nav{
 #this{
 
   height: 40vh;
-  width: 60vw;
+  width: 20vw;
+  z-index: -5;
 
 }
 
@@ -201,7 +202,7 @@ nav{
 /* Color Theme stuff */
 
 body{
-  background-color: darkcyan;
+  background-image: url('http://i.imgur.com/OB9AfUt.png');
 }
 a{
   text-decoration: none;
@@ -250,12 +251,6 @@ a{
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   width: 700px;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2010338b2b92c11191c7e915aa694a2abb2195d5
 
 .resImg{
 
@@ -269,10 +264,22 @@ a{
   color: darkorange;
 }
 
-<<<<<<< HEAD
-=======
->>>>>>> ff5555fa2fa531a43096d23c707e15a4a30ffe3c
->>>>>>> 889c9267b1b94681ccd9850835dee7377f613ec2
-=======
+/* User Login stuff */
+.superDuperLoginStuff, .superDuperSignupStuff{
+  color: rgb(255,140,0);
+  margin: 0 auto;
+  width: 300px;
+}
+/* Showpage helping stuff */
+.lineMeUp{
+  display: flex;
+  justify-content: space-around;
+}
 
->>>>>>> 2010338b2b92c11191c7e915aa694a2abb2195d5
+.commentSection, .costAndFavorite, .leaveAComment{
+  display: flex;
+  justify-content: center;
+}
+.topSecretInformation{
+  display: none;
+}

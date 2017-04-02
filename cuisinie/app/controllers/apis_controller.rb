@@ -16,13 +16,9 @@ class ApisController < ApplicationController
   end
 
   def new
-    p "//////////////////////////"
-    p params['data']['user_id']
-    p params['data']['restaurant_id']
-    p User.find(params['data']['user_id'])
-    p Restaurant.find(params['data']['restaurant_id'])
-    p Restaurant.find(params['data']['restaurant_id']).build.(User.find(params['data']['user_id']))
-
+    p @newUser_Restaurant = RestaurantsUser.new(favorite_params)
+    if @newUser_Restaurant.save
+    end
   end
 
   private
@@ -45,4 +41,8 @@ class ApisController < ApplicationController
   def cuisine_params
     id = params.require(:cuisine).permit(:id)
   end
+
+  def favorite_params
+    id = params.require(:restaurantsuser).permit(:user_id, :restaurant_id)
+ end
 end

@@ -16,37 +16,23 @@ class RestaurantsController < ApplicationController
                       'lon' => @restaurant['location']['longitude'],
                       'restaurant_id' => @restaurant['id'],
                       'user_rating' => @restaurant['user_rating']['aggregate_rating'] }
-<<<<<<< HEAD
-<<<<<<< HEAD
-    @comments = Comment.all
-    @comment = Comment.new
-=======
-=======
-
->>>>>>> 2010338b2b92c11191c7e915aa694a2abb2195d5
 
 
         if Restaurant.exists?(name: @restaurant_hash['name'])
             @restaurant_hash = Restaurant.find_by(name: @restaurant_hash['name'])
             @hi = @restaurant_hash.id
           else
-            p @hi = create
-            p "......................................"
-            p @hi
+            @hi = create
         end
-
       @comments = Comment.all
       @comment = Comment.new
-<<<<<<< HEAD
->>>>>>> 889c9267b1b94681ccd9850835dee7377f613ec2
-=======
 
->>>>>>> 2010338b2b92c11191c7e915aa694a2abb2195d5
   end
 
 
 
   def create
+    p @restaurant_hash
       @restaurant = Restaurant.new(@restaurant_hash)
       if @restaurant.save
         p @restaurant.id
