@@ -1,149 +1,46 @@
-
-
-
-<p>
-    <%= @restaurant["name"] %>
-</p>
-<p><%= @restaurant["address"] %>
-</p>
-<img src="<%= @restaurant["img_url"] %>" alt="img">
-</p>
-<p> Cost for two: <%= @restaurant["cost"] %>*
-
-Add to favorites:  <button> Save </button>
-<div id="this">
-
+<h1 class="resName">
+    <%= @restaurant_hash["name"] %>
+</h1>
+<h2 class="resAddr">
+  <%= @restaurant_hash["address"] %>
+</h2>
+<div class="lineMeUp">
+  <img class="resImg" src="<%= @restaurant_hash["img_url"] %>" alt="img">
+  <div id="this">
+  </div>
 </div>
-
-<h4>Comment list:</h4>
-
-
-<% @comments.each do |comment| %>
-<tb>
-<p>
-  <%= comment.content %>
-  <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
-    <%= f.submit "Delete"%>
+<div class="commentSection">
+  <h4>Comment list:</h4>
+  <% @comments.each do |comment| %>
+  <tb>
+  <p>
+    <%= comment.content %>
+    <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
+      <%= f.submit "Delete"%>
+    <% end %>
+  </p>
   <% end %>
+  </tb>
+</div>
+<div class="costAndFavorite">
+  <p> Cost for two: <%= @restaurant_hash["cost"] %>* <br>
+    <% if current_user.present? %>
+    <%= link_to "Favorites", user_path(id: current_user.id) %>
+  Add to favorites:  <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%> <br>
+</div>
+<div class="leaveAComment">
+  <h3>Leave a comment:</h3>
+  <%= render "comments/comments_form", comment: @comment %>
+  <br>
+</div>
+<div class="topSecretInformation">
+
+<p class="user_id"><%= current_user.id%></p>
+<p class="rest_id"><%= @hi %></p>
+<p id="lat"><%= @restaurant_hash["lat"] %>
 </p>
-<% end %>
-
-</tb>
-
-<h3>Leave a comment:</h3>
-
-<%= render "comments/comments_form", comment: @comment %>
-
-<br>
-
-
-<%= link_to "Back to Home", restaurant_path %>
-
-<p id="lat"><%= @restaurant["lat"] %>
+<p id="lon"><%= @restaurant_hash["lon"] %>
 </p>
-<p id="lon"><%= @restaurant["lon"] %>
-</p>
-<p><% @restaurant["restaurant_id"] %>
-
-</p>
-
-
-
-
-
-
-
-<body>
-
-  <div id="container">
-    <nav role="navigation">
-      <img id="imglogo" src="http://i.imgur.com/oxokbLO.png">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Favorites</a>
-<!--
-          <ul>
-            <li><a href="">Latest Restaurant</a></li>
-          </ul>
--->
-        </li>
-
-        <li><a href="#">Sign-In</a></li>
-        <li><a href="#">Sign-Up</a></li>
-      </ul>
-    </nav>
-
-    <div id="restaurantName">
-      <h1>  <%= @restaurant["name"] %></h1>
-    </div>
-
-
-    <div id="slideshowContainer">
-
-      <div id="slideshow"> <img id="pic" src="<%= @restaurant["img_url"] %>">
-        <div id="this">
-
-        </div>
-        <div id="maplocation">
-
-          <div id="this">
-
-          </div>
-
-      </div>
-      </div>
-       </div>
-
-
-
-
-      <div id="restaurantResults">
-        <h1><%= @restaurant["address"] %> </h1>
-        <h4>Cost for two: <%= @restaurant["cost"] %>* </h4>
-      </div>
-
-
-
-    <div id="commentsSection">
-
-
-      <div id="comments">
-        <h1> Comments</h1>
-        <h4>Comment on the service of this restaurant</h4>
-        <h1> Comments</h1>
-        <h4>Comment on the service of this restaurant</h4>
-        <h1> Comments</h1>
-        <h4>Comment on the service of this restaurant</h4>
-        <textarea> </textarea>
-
-      </div>
-
-      <div id="replies">
-        <h1> Replies </h1>
-        <h4>Reply to the user</h4>
-         <h1> Replies </h1>
-        <h4>Reply to the user</h4>
-         <h1> Replies </h1>
-        <h4>Reply to the user</h4>
-         <h1> Replies </h1>
-        <h4>Reply to the user</h4>
-      </div>
-
-
-
-
-    </div>
-
-
-
-    <div id="footer">
-
-      <h1>this is the footer </h1>
-
-    </div>
-
-
-	</div>
-
-
-</body>
+<p><% @restaurant_hash["restaurant_id"] %>
+  <% end %>
+</div>

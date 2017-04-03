@@ -224,5 +224,24 @@
 >>>>>>> eb5403ab792630fcb7360fb6ec538cb862c087a9
 	</div>
 </div>
+<<<<<<< HEAD
 </body>
 </html>
+=======
+<script type="text/javascript">
+// slideshow stuff.
+// Hide the images
+$("#slideshow > div:gt(0)").hide();
+
+// method chaining for animation
+setInterval( () => {
+	$('#slideshow > div:first')
+		.fadeOut(1000)
+		.next()
+		.fadeIn(2000)
+		.end()
+		.appendTo('#slideshow');
+}, 2500);
+
+</script>
+>>>>>>> 5e0c389ec6801449c276423baaa47f135a4f84ad

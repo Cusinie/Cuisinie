@@ -15,6 +15,18 @@ class ApisController < ApplicationController
     render json: @filtered_response
   end
 
+  def new
+    p @newUser_Restaurant = RestaurantsUser.new(favorite_params)
+    if @newUser_Restaurant.save
+      flash[:notice] = 'Restaurant saved successfully!'
+      p current_user.id
+      redirect_to user_path(current_user.id)
+    else
+      flash[:alert] = "failed"
+      redirect_back fallback_location: root_path
+    end
+  end
+
   private
 
   def search
@@ -35,4 +47,8 @@ class ApisController < ApplicationController
   def cuisine_params
     id = params.require(:cuisine).permit(:id)
   end
+
+  def favorite_params
+    id = params.require(:restaurantsuser).permit(:user_id, :restaurant_id)
+ end
 end

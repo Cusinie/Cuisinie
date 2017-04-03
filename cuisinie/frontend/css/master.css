@@ -18,6 +18,7 @@ Container
 Nav*/
 
 
+
 .container {
   display: flex;
   flex-direction: column;
@@ -122,7 +123,7 @@ textarea{
 /*-----------------Button----*/
 
 .button {
-	display: flex;
+	display: inline-block;
 	-moz-box-shadow: 0px 10px 20px 4px #276873;
 	-webkit-box-shadow: 0px 10px 20px 4px #276873;
 	box-shadow: 0px 10px 20px 4px #276873;
@@ -143,7 +144,7 @@ textarea{
 	font-family:Arial;
 	font-size:14px;
 	font-weight:bold;
-	padding:10px 20px;
+	padding:10px 10px;
 	text-decoration:none;
 	text-shadow:0px -4px 0px #3d768a;
 }
@@ -179,6 +180,7 @@ textarea{
 #indexslideshow {
   background-color: white;
 	overflow: hidden;
+	width: 100%;
 }
 
 #indexpic {
@@ -218,6 +220,10 @@ textarea{
 
   width: 100%;
 
+}
+
+#submitButton {
+	justify-content: center;
 }
 /*-----Fav Page-------*/
 

@@ -12,7 +12,8 @@
 <body>
 <div id="indexcontainer" class="container">
   <nav role="navigation"> <img id="imglogo" src="http://i.imgur.com/oxokbLO.png">
-    <ul>
+    
+     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">Favorites</a> 
         <!--
@@ -26,53 +27,62 @@
     </ul>
   </nav>
   <div id="indexslideshowContainer" class="index">
-    <div id="indexslideshow"> <img id="indexpic" class="index" src="http://imgur.com/gmp2IG2.jpg"> </div>
+    <div id="indexslideshow">
+    
+     <hr> <img id="indexpic" class="index" src="http://imgur.com/gmp2IG2.jpg"> </div>
   </div>
+ 
   <div id="indexproductDiv" class="index">
     <div id="indexsearchFilter">
+     
       <form id="indexform" action="/action_page.php">
        
         <select>
           <option>New York</option>
         </select>
+		 <div>
+       <br>
         <p>
           <label>
             <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_0">
             BBQ</label>
-          <br>
+          <br><br>
           <label>
             <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_1">
             Bar Food</label>
-          <br>
+          <br><br>
           <label>
             <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_2">
             Carribean</label>
-          <br>
+          <br><br>
           <label>
             <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_3">
             Chinese</label>
-          <br>
+          <br><br>
           <label>
             <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_4">
             Italian</label>
-          <br>
+          <br><br>
           <label>
             <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_5">
             Japaneese</label>
-          <br>
+          <br><br>
           <label>
             <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_6">
             Tex-Mex</label>
-          <br>
+          <br><br>
           <label>
             <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_7">
             Sushi</label>
-          <br>
+          <br><br>
           <label>
             <input type="radio" name="cuisinechoices" value="radio" id="cuisinechoices_8">
             Vegetarian</label>
-          <br>
+          <br><br>
         </p>
+		  </div>
+        
+<!--
         <select>
           <option>$</option>
           <option>$$</option>
@@ -80,8 +90,12 @@
           <option>$$$$</option>
           <option>$$$$$</option>
         </select>
+-->
       </form>
-      <input class="button" type="submit">
+      <hr>
+      <div id="submitButton">
+	<input class="button" type="submit">
+		</div>
     </div>
     <div id="indexresults" class="index">
       <table id="indextable">

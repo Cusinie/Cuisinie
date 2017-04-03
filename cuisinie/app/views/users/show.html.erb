@@ -1,0 +1,12 @@
+<h1 class="resName">
+    <%= @newUser_Restaurant.email %>
+</h1>
+<h2 class="resAddr">
+  <%= @newUser_Restaurant["address"] %>
+</h2>
+<div class="lineMeUp">
+  <img class="resImg" src="<%= @newUser_Restaurant["img_url"] %>" alt="img">
+
+  <% @restaurants.each do |restaurant| %>
+      <p><%= restaurant.name %></p>
+  <% end %>
