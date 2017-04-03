@@ -56,7 +56,7 @@ $(document).on('turbolinks:load' , function() {
       $('<br><br>').appendTo($container);
       $container.appendTo('.theRealPage');
       // console.log(container,name,image,addr,cost,rating);
-      console.log(val);
+      // console.log(val);
 
       arr.push({
         "lat": val.lat,
@@ -79,7 +79,7 @@ $(document).on('turbolinks:load' , function() {
     let click = $("#cuisine_id").val();
 
      // making sure we're sending the right cuisine type
-
+//grabing information from the backend DB that pulled information from the external api via HTTParty
     $.ajax({
       method: 'POST',
       data: {
@@ -102,7 +102,7 @@ $(document).on('turbolinks:load' , function() {
 
   }); // end of click function
 
-  // slideshow stuff.
+  // slideshow
     // Hide the images
     $("#slideshow > div:gt(0)").hide();
 
@@ -119,7 +119,7 @@ $(document).on('turbolinks:load' , function() {
   // google maps needs vanilla javascript
   function initMap() {
 
-    console.log("hey");
+
 
     var uluru = {
       lat: parseFloat(document.getElementById('lat').textContent),
@@ -146,10 +146,11 @@ $(document).on('turbolinks:load' , function() {
       position: restaurantLocation,
       map: map
     });
+    //floating markers on top of the google marker
     // var infoWindow = new google.maps.InfoWindow({
     //   map: map
     // });
-
+//mouseover function would display if above code was working.
     marker.addListener('mouseover', function() {
       infoWindow.open(infoWindow.setContent($('#name').text()), marker);
     });
