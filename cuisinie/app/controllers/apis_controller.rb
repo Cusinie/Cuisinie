@@ -16,11 +16,12 @@ class ApisController < ApplicationController
   end
 
   def new
-    p @newUser_Restaurant = RestaurantsUser.new(favorite_params)
+    params = favorite_params
+    params[:user_id] = "#{current_user.id}"
+    p @newUser_Restaurant = RestaurantsUser.new(params)
     if @newUser_Restaurant.save
       flash[:notice] = 'Restaurant saved successfully!'
-      p current_user.id
-      redirect_to user_path(current_user.id)
+      render json: {'id' => current_user.id}
     else
       flash[:alert] = "failed"
       redirect_back fallback_location: root_path

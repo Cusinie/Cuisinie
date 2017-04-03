@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def new
-    @comment = Comment.new
-    @comment.restaurant_id = Restaurant.show.id
+    # @comment = Comment.new
+    # @comment.restaurant_id = Restaurant.show.id
   end
 
   def create

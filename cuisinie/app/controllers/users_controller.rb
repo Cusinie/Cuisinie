@@ -9,26 +9,23 @@ class UsersController < ApplicationController
     # @user =
   end
 
-  def destroy
-    p "============================"
-    p "============================"
-    p "WORKKKWOWROKRWOKWROKKOWROKWROKKWRKWRKOWROKKOWRO"
-    p "============================"
-    p @rest_user = RestaurantsUser.where(user_params)
-    p @rest_user
-
-
-    p @use = User.find(@id[:user_id])
-    p @rest = Restaurant.find(@id[:restaurant_id])
-    p "============================"
-    p @use.restaurants
-    @restaurant = Restaurant.where(:user_id => params[:id])
-    if @restaurant.delete
-      redirect_to user_path
-    else
-      redirect_to :back
-    end
-end
+#   def destroy
+#
+#     p @rest_user = RestaurantsUser.where(user_params)
+#     p @rest_user
+#
+#
+#     p @use = User.find(@id[:user_id])
+#     p @rest = Restaurant.find(@id[:restaurant_id])
+#     p "============================"
+#     p @use.restaurants
+#     @restaurant = Restaurant.where(:user_id => params[:id])
+#     if @restaurant.delete
+#       redirect_to user_path
+#     else
+#       redirect_to :back
+#     end
+# end
 
 private
 

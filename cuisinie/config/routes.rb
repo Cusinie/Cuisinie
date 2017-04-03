@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :apis
   resources :favorites
   resources :users
+  resources :users, only: [:index , :show]
+  resources :restaurants_users, only: [:destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

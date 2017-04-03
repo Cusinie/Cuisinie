@@ -43,7 +43,7 @@ $(document).on('turbolinks:load' , function() {
       const $name = $('<h1 class=\"resName\"></h1>').text(val.name);
       const $image = $('<img class=\"resImg\" src=\"' + val.img_url + '\">');
       const $addr = $('<p class=\"resAddr\"></p>').text(val.address);
-      const $cost = $('<p class=\"resCost\"></p>').text("Avg cost for 2: " + val.cost);
+      const $cost = $('<p class=\"resCost\"></p>').text("Avg cost for 2: $" + val.cost);
       const $rating = $('<p class=\"resRate\"></p>').text("Avg user rating: " + val.user_rating);
       const $id = $('<a href=\"/restaurants/' + val.restaurant_id + '\" />').val(val.restaurant_id);
       // appending them to the page
@@ -109,12 +109,12 @@ $(document).on('turbolinks:load' , function() {
     // method chaining for animation
     setInterval( () => {
       $('#slideshow > div:first')
-        .fadeOut(1000)
+        .fadeOut(2000)
         .next()
-        .fadeIn(2000)
+        .fadeIn(3000)
         .end()
         .appendTo('#slideshow');
-    }, 2500);
+    }, 8500);
 
   // google maps needs vanilla javascript
   function initMap() {
@@ -180,7 +180,7 @@ $(document).on('turbolinks:load' , function() {
       },
       url: '/apis/new',
       success: (data) => {
-        // console.log(data)
+      window.location.replace("/users/"+data.id)
       },
       error: (jqx, error) => {
         console.log(error)

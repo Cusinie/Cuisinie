@@ -1,37 +1,38 @@
 <h1 class="resName">
-    <%= @restaurant_hash["name"] %>
+    <%= @new_restaurant.name %>
 </h1>
 <h2 class="resAddr">
-  <%= @restaurant_hash["address"] %>
+  <%= @new_restaurant.address%>
 </h2>
 <div class="lineMeUp">
-  <img class="resImg" src="<%= @restaurant_hash["img_url"] %>" alt="img">
+  <img class="resImg" src="<%= @new_restaurant.img_url %>" alt="img">
   <div id="this">
   </div>
 </div>
 <div class="commentSection">
-  <br>
-  <h4>Comment list: </h4><br>
-  <br>
+  <h4>Comment list:</h4>
   <% @comments.each do |comment| %>
   <tb>
   <p>
-     <%= current_user.email%> : <%= comment.content %>
-    <% if current_user.id == comment.user_id%>
-      <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
-        <%= f.submit "Delete"%>
-         <% end %>
-        <% else %>
-      <% end %>
+    <%= comment.content %>
+    <p>Author: <%=User.select(:email).where(id: "#{comment.user_id}")[0].email %></p>
+    <% if current_user %>
+        <% if current_user.id == comment.user_id%>
+        <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
+          <%= f.submit "Delete"%>
+           <% end %>
+          <% else %>
+    <% end %>
+    <% end %>
   </p>
   <% end %>
   </tb>
 </div>
 <div class="costAndFavorite">
-  <p> Cost for two: <%= @restaurant_hash["cost"] %>* <br>
+  <p> Cost for two: $ <%= @new_restaurant.cost %> <br>
     <% if current_user.present? %>
 
-  Add to favorites: <a href="/users/profile"> <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%> </a> <br>
+  Add to favorites:  <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%>  <br>
 </div>
 <div class="leaveAComment">
   <h3>Leave a comment:</h3>
@@ -39,13 +40,15 @@
   <br>
 </div>
 <div class="topSecretInformation">
-
 <p class="user_id"><%= current_user.id%></p>
 <p class="rest_id"><%= @new_restaurant.id %></p>
-<p id="lat"><%= @restaurant_hash["lat"] %>
+</div>
+<% end %>
+<div class="topSecretInformation">
+<p id="lat"><%= @new_restaurant.lat%>
 </p>
-<p id="lon"><%= @restaurant_hash["lon"] %>
+<p id="lon"><%= @new_restaurant.lon %>
 </p>
-<p><% @restaurant_hash["restaurant_id"] %>
-  <% end %>
+<p><% @new_restaurant.restaurant_id%>
+
 </div>
