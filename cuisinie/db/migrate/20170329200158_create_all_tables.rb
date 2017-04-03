@@ -17,7 +17,7 @@ class CreateAllTables < ActiveRecord::Migration[5.0]
         t.string :author
         t.string :content
         t.belongs_to :user, index: true
-        t.belongs_to :restaurants, index: true
+        t.belongs_to :restaurant, index: true
         t.timestamps
     end
 
