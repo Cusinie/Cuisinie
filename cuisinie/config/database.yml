@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: cuisinie_production
   username: cuisinie
   password: <%= ENV['CUISINIE_DATABASE_PASSWORD'] %>
