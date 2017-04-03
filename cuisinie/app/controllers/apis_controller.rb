@@ -27,6 +27,14 @@ class ApisController < ApplicationController
     end
   end
 
+  # def destory
+  #   if @newUser_Restaurant.destory
+  #     redirect_to user_path(current_user.id)
+  #   else
+  #     redirect_to @newUser_Restaurant
+  #   end
+  # end
+
   private
 
   def search

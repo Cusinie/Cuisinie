@@ -27,6 +27,6 @@ end
   end
 
   def comment_params
-    params.require(:comment).permit(:author, :content, :user_id, :restaurants_id)
+    params.require(:comment).permit(:author, :content, :user_id, :restaurant_id)
     end
 end

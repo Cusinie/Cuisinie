@@ -15,13 +15,21 @@
 //= require turbolinks
 //= require_tree
 
+$( () => {
+
+});
+
 
 
 //start of document ready
 
 $(document).on('turbolinks:load' , function() {
 
-  console.log("ready!");
+  // slideshow stuff.
+  // Hide the images
+  $("#slideshow > div:gt(0)").hide();
+
+
 
   arr = []
 
@@ -58,7 +66,7 @@ $(document).on('turbolinks:load' , function() {
     }); // end of looping over the search results
 
     $.each(arr, (index, value) => {
-      console.log(value);
+
 
     }); // making sure the array is there
 
@@ -66,11 +74,11 @@ $(document).on('turbolinks:load' , function() {
 
   $(".click").click(() => {
 
-    console.log("hi");
+
 
     let click = $("#cuisine_id").val();
 
-    console.log(click); // making sure we're sending the right cuisine type
+     // making sure we're sending the right cuisine type
 
     $.ajax({
       method: 'POST',
@@ -94,7 +102,19 @@ $(document).on('turbolinks:load' , function() {
 
   }); // end of click function
 
+  // slideshow stuff.
+    // Hide the images
+    $("#slideshow > div:gt(0)").hide();
 
+    // method chaining for animation
+    setInterval( () => {
+      $('#slideshow > div:first')
+        .fadeOut(1000)
+        .next()
+        .fadeIn(2000)
+        .end()
+        .appendTo('#slideshow');
+    }, 2500);
 
   // google maps needs vanilla javascript
   function initMap() {
@@ -126,9 +146,9 @@ $(document).on('turbolinks:load' , function() {
       position: restaurantLocation,
       map: map
     });
-    var infoWindow = new google.maps.InfoWindow({
-      map: map
-    });
+    // var infoWindow = new google.maps.InfoWindow({
+    //   map: map
+    // });
 
     marker.addListener('mouseover', function() {
       infoWindow.open(infoWindow.setContent($('#name').text()), marker);
@@ -144,7 +164,7 @@ $(document).on('turbolinks:load' , function() {
 
     $(".favorite").click(() => {
 
-    console.log("hi");
+
 
     let user_id = $(".user_id").text();
     let restaurant_id = $(".rest_id").text();
@@ -167,6 +187,9 @@ $(document).on('turbolinks:load' , function() {
 
     }); // end of ajax call
   });
-
+  // flash notifications need some style
+    $('div.flash').delay(500).slideDown('normal', function() {
+      $(this).delay(2500).slideUp();
+    });
 
 }); //end of document ready

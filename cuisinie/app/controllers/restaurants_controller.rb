@@ -18,16 +18,16 @@ class RestaurantsController < ApplicationController
                       'user_rating' => @restaurant['user_rating']['aggregate_rating'] }
 
 
-        if Restaurant.exists?(name: @restaurant_hash['name'])
-            @restaurant_hash = Restaurant.find_by(name: @restaurant_hash['name'])
-            @hi = @restaurant_hash.id
-          else
-            @hi = create
-        end
-      @comments = Comment.all
-      @comment = Comment.new
-
-  end
+                      if Restaurant.exists?(name: @restaurant_hash['name'])
+                          @restaurant_hash = Restaurant.find_by(name: @restaurant_hash['name'])
+                          @new_restaurant = @restaurant_hash
+                        else
+                          @new_restaurant = create
+                          @new_restaurant=Restaurant.find_by(name: @restaurant_hash['name'])
+                      end
+                    @comment = Comment.new
+                    @comments = Comment.where(:restaurant_id => @new_restaurant.id)
+              end
 
 
 
@@ -43,6 +43,14 @@ class RestaurantsController < ApplicationController
 
   end
 
+def destroy
+  @restaurant = Restaurant.find(params[:id])
+  if @restaurant.delete
+    redirect_to user_path(current_user)
+  else
+    flash[:alert] = "Nope you fucked up."
+  end
+end
 
   private
 

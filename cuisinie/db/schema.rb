@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20170329200158) do
     t.string   "author"
     t.string   "content"
     t.integer  "user_id"
-    t.integer  "restaurants_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["restaurants_id"], name: "index_comments_on_restaurants_id", using: :btree
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["restaurant_id"], name: "index_comments_on_restaurant_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 

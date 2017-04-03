@@ -1,12 +1,14 @@
 <h1 class="resName">
-    <%= @newUser_Restaurant.email %>
-</h1>
-<h2 class="resAddr">
-  <%= @newUser_Restaurant["address"] %>
-</h2>
-<div class="lineMeUp">
-  <img class="resImg" src="<%= @newUser_Restaurant["img_url"] %>" alt="img">
+    <%= @newUser_Restaurant.email%>
+
 
   <% @restaurants.each do |restaurant| %>
+<tb>
       <p><%= restaurant.name %></p>
+      <%= restaurant.address %></p>
+      <img src="<%= restaurant.img_url %>" alt=""></p>
+
+
+            <%= link_to "Remove this restaurant?", restaurant, method: :delete, data: {confirm: "Are you sure you want to delete this?"} %>
+</tb>
   <% end %>

@@ -10,14 +10,19 @@
   </div>
 </div>
 <div class="commentSection">
-  <h4>Comment list:</h4>
+  <br>
+  <h4>Comment list: </h4><br>
+  <br>
   <% @comments.each do |comment| %>
   <tb>
   <p>
-    <%= comment.content %>
-    <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
-      <%= f.submit "Delete"%>
-    <% end %>
+     <%= current_user.email%> : <%= comment.content %>
+    <% if current_user.id == comment.user_id%>
+      <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
+        <%= f.submit "Delete"%>
+         <% end %>
+        <% else %>
+      <% end %>
   </p>
   <% end %>
   </tb>
@@ -25,8 +30,8 @@
 <div class="costAndFavorite">
   <p> Cost for two: <%= @restaurant_hash["cost"] %>* <br>
     <% if current_user.present? %>
-    <%= link_to "Favorites", user_path(id: current_user.id) %>
-  Add to favorites:  <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%> <br>
+
+  Add to favorites: <a href="/users/profile"> <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%> </a> <br>
 </div>
 <div class="leaveAComment">
   <h3>Leave a comment:</h3>
@@ -36,7 +41,7 @@
 <div class="topSecretInformation">
 
 <p class="user_id"><%= current_user.id%></p>
-<p class="rest_id"><%= @hi %></p>
+<p class="rest_id"><%= @new_restaurant.id %></p>
 <p id="lat"><%= @restaurant_hash["lat"] %>
 </p>
 <p id="lon"><%= @restaurant_hash["lon"] %>
