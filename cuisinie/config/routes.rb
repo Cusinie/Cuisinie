@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root to: 'restaurants#index'
   # resources literally creates routes for each controller's method
   resources :restaurants, only: [:index, :show, :create]
-  resources :comments , only: [:create, :destroy]
+  resources :comments , only: [:create,:new,:destroy]
+  post "/comments/:id/reply", to: "comments#new",  as: "comment_reply"
   resources :apis , only: [:new, :create]
   resources :users , only: [:index , :show]
   resources :restaurants_users, only: [:destroy]

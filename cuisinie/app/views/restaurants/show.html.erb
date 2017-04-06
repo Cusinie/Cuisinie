@@ -1,5 +1,5 @@
 <h1 class="resName">
-    <%= @new_restaurant.name %>
+  <%= @new_restaurant.name %>
 </h1>
 <h2 class="resAddr">
   <%= @new_restaurant.address%>
@@ -12,41 +12,56 @@
 <div class="commentSection">
   <h4>Comment list:</h4>
   <% @comments.each do |comment| %>
-  <tb>
-  <p>
-    <%= comment.content %>
-    <p>Author: <%=User.select(:email).where(id: "#{comment.user_id}")[0].email %></p>
-    <% if current_user %>
-        <% if current_user.id == comment.user_id%>
-        <%= form_for(comment, method: :delete, data: { confirm: "delete?" }) do |f| %>
-          <%= f.submit "Delete"%>
-           <% end %>
-          <% else %>
-    <% end %>
-    <% end %>
-  </p>
-  <% end %>
+    <tb>
+      <p>
+        <% if comment.parent_id.nil? %>
+          <p>Author: <%=comment.author %></p>
+          <p>Comment: <%= comment.content %></p>
+          <% if current_user %>
+            <% if current_user.id == comment.user_id%>
+              <%=button_to "Delete" ,comment_path(comment) , method: :delete%>
+              <%=button_to "Reply" , comment_reply_path(comment) %>
+            <% else %>
+              <%=button_to "Reply" , comment_reply_path(comment) %>
+            <% end %>
+          <% end %>
+          <% comment.descendants.each do |comm| %>
+            <div class="newcommentSection">
+              <p>Author: <%= comm.author %></p>
+              <p>Comment: <%=comm.content %></p>
+              <% if current_user %>
+                <% if current_user.id == comment.user_id%>
+                  <%=button_to "Delete" ,comment_path(comm),method: :delete %>
+                  <%=button_to "Reply" , comment_reply_path(comment) %>
+                <% else %>
+                  <%=button_to "Reply" , comment_reply_path(comment) %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+        <% end%>
+      <% end %>
+    </p>
   </tb>
 </div>
 <div class="costAndFavorite">
   <p> Cost for two: <%= @new_restaurant.cost %>* <br>
     <% if current_user.present? %>
-    <%= link_to "Favorites", user_path(id: current_user.id) %>
-  Add to favorites:  <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%> <br>
-</div>
-<div class="leaveAComment">
-  <h3>Leave a comment:</h3>
-  <%= render "comments/comments_form", comment: @comment %>
-  <br>
-</div>
-<div class="topSecretInformation">
-
-<p class="user_id"><%= current_user.id%></p>
-<p class="rest_id"><%= @new_restaurant.id %></p>
-<p id="lat"><%= @new_restaurant.lat%>
-</p>
-<p id="lon"><%= @new_restaurant.lon %>
-</p>
-<p><% @new_restaurant.restaurant_id%>
-  <% end %>
-</div>
+      Add to favorites:  <%= button_tag "Favorite" , :type=> 'button' ,:class=> 'favorite'%> <br>
+    </div>
+    <div class="leaveAComment">
+      <h3>Leave a comment:</h3>
+      <%= render "comments/comments_form", comment: @comment %>
+      <br>
+    </div>
+    <div class="topSecretInformation">
+      <p class="user_id"><%= current_user.id%></p>
+      <p class="rest_id"><%= @new_restaurant.id %></p>
+      <p id="lat"><%= @new_restaurant.lat%>
+      </p>
+      <p id="lon"><%= @new_restaurant.lon %>
+      </p>
+      <p><% @new_restaurant.restaurant_id%>
+      <% end %>
+    </div>

@@ -281,6 +281,14 @@ a{
   display: flex;
   justify-content: center;
 }
+
+.newcommentSection{
+  display: flex;
+  justify-content: right;
+  flex-direction: column;
+  padding-left: 50px;
+  padding-bottom: 15px;
+}
 .topSecretInformation{
   display: none;
 }

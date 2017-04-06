@@ -159,7 +159,8 @@ $(document).on('turbolinks:load' , function() {
       },
       url: '/apis/new',
       success: (data) => {
-        // console.log(data)
+        console.log(data.id)
+        window.location.replace('/users/' +data.id)
       },
       error: (jqx, error) => {
         console.log(error)
