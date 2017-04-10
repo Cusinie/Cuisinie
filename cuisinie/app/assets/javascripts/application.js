@@ -15,21 +15,13 @@
 //= require turbolinks
 //= require_tree
 
-$( () => {
-
-});
-
 
 
 //start of document ready
 
 $(document).on('turbolinks:load' , function() {
 
-  // slideshow stuff.
-  // Hide the images
-  $("#slideshow > div:gt(0)").hide();
-
-
+  console.log("ready!");
 
   arr = []
 
@@ -43,7 +35,7 @@ $(document).on('turbolinks:load' , function() {
       const $name = $('<h1 class=\"resName\"></h1>').text(val.name);
       const $image = $('<img class=\"resImg\" src=\"' + val.img_url + '\">');
       const $addr = $('<p class=\"resAddr\"></p>').text(val.address);
-      const $cost = $('<p class=\"resCost\"></p>').text("Avg cost for 2: $" + val.cost);
+      const $cost = $('<p class=\"resCost\"></p>').text("Avg cost for 2: " + val.cost);
       const $rating = $('<p class=\"resRate\"></p>').text("Avg user rating: " + val.user_rating);
       const $id = $('<a href=\"/restaurants/' + val.restaurant_id + '\" />').val(val.restaurant_id);
       // appending them to the page
@@ -56,7 +48,7 @@ $(document).on('turbolinks:load' , function() {
       $('<br><br>').appendTo($container);
       $container.appendTo('.theRealPage');
       // console.log(container,name,image,addr,cost,rating);
-      // console.log(val);
+      console.log(val);
 
       arr.push({
         "lat": val.lat,
@@ -66,7 +58,7 @@ $(document).on('turbolinks:load' , function() {
     }); // end of looping over the search results
 
     $.each(arr, (index, value) => {
-
+      console.log(value);
 
     }); // making sure the array is there
 
@@ -74,12 +66,12 @@ $(document).on('turbolinks:load' , function() {
 
   $(".click").click(() => {
 
-
+    console.log("hi");
 
     let click = $("#cuisine_id").val();
 
-     // making sure we're sending the right cuisine type
-//grabing information from the backend DB that pulled information from the external api via HTTParty
+    console.log(click); // making sure we're sending the right cuisine type
+
     $.ajax({
       method: 'POST',
       data: {
@@ -102,24 +94,12 @@ $(document).on('turbolinks:load' , function() {
 
   }); // end of click function
 
-  // slideshow
-    // Hide the images
-    $("#slideshow > div:gt(0)").hide();
 
-    // method chaining for animation
-    setInterval( () => {
-      $('#slideshow > div:first')
-        .fadeOut(2000)
-        .next()
-        .fadeIn(3000)
-        .end()
-        .appendTo('#slideshow');
-    }, 8500);
 
   // google maps needs vanilla javascript
   function initMap() {
 
-
+    console.log("hey");
 
     var uluru = {
       lat: parseFloat(document.getElementById('lat').textContent),
@@ -146,11 +126,10 @@ $(document).on('turbolinks:load' , function() {
       position: restaurantLocation,
       map: map
     });
-    //floating markers on top of the google marker
-    // var infoWindow = new google.maps.InfoWindow({
-    //   map: map
-    // });
-//mouseover function would display if above code was working.
+    var infoWindow = new google.maps.InfoWindow({
+      map: map
+    });
+
     marker.addListener('mouseover', function() {
       infoWindow.open(infoWindow.setContent($('#name').text()), marker);
     });
@@ -165,7 +144,7 @@ $(document).on('turbolinks:load' , function() {
 
     $(".favorite").click(() => {
 
-
+    console.log("hi");
 
     let user_id = $(".user_id").text();
     let restaurant_id = $(".rest_id").text();
@@ -180,7 +159,8 @@ $(document).on('turbolinks:load' , function() {
       },
       url: '/apis/new',
       success: (data) => {
-      window.location.replace("/users/"+data.id)
+        console.log(data.id)
+        window.location.replace('/users/' +data.id)
       },
       error: (jqx, error) => {
         console.log(error)
@@ -188,9 +168,6 @@ $(document).on('turbolinks:load' , function() {
 
     }); // end of ajax call
   });
-  // flash notifications need some style
-    $('div.flash').delay(500).slideDown('normal', function() {
-      $(this).delay(2500).slideUp();
-    });
+
 
 }); //end of document ready

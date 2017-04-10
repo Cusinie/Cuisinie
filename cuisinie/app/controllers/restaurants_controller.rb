@@ -6,41 +6,24 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @new_restaurant = create
+    @new_restaurant= create
     @comment = Comment.new
-    @comments = Comment.where(restaurant_id: @new_restaurant.id)
-              end
+    @comments = Comment.where(:restaurant_id => @new_restaurant.id)
+  end
 
   def create
-    # p @restaurant_hash
-    #   @restaurant = Restaurant.new(@restaurant_hash)
-    #   if @restaurant.save
-    #     p @restaurant.id
-    #       @id = @restaurant.id
-    #       else
-    #     p "not saved"
-    #    end
     p @restaurant = search.parsed_response
     p @restaurant_hash = { 'name' => @restaurant['name'],
                            'address' => @restaurant['location']['address'],
                            'img_url' => @restaurant['featured_image'],
                            'cost' => @restaurant['average_cost_for_two'],
-                           'menu' => @restaurant['menu_url'],
+                           "menu"=> @restaurant['menu_url'],
                            'lat' => @restaurant['location']['latitude'],
                            'lon' => @restaurant['location']['longitude'],
                            'restaurant_id' => @restaurant['id'],
                            'user_rating' => @restaurant['user_rating']['aggregate_rating'] }
-    Restaurant.find_or_create_by(@restaurant_hash)
+    return Restaurant.find_or_create_by(@restaurant_hash)
   end
-
-  # def destroy
-  #   @restaurant = Restaurant.find(params[:id])
-  #   if @restaurant.delete
-  #     redirect_to user_path(current_user)
-  #   else
-  #     flash[:alert] = 'Nope you fucked up.'
-  #   end
-  # end
 
   private
 

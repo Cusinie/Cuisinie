@@ -16,25 +16,17 @@ class ApisController < ApplicationController
   end
 
   def new
-    params = favorite_params
-    params[:user_id] = "#{current_user.id}"
+    params=favorite_params
+    params[:user_id]  = "#{current_user.id}"
     p @newUser_Restaurant = RestaurantsUser.new(params)
     if @newUser_Restaurant.save
       flash[:notice] = 'Restaurant saved successfully!'
-      render json: {'id' => current_user.id}
+      render json: current_user
     else
       flash[:alert] = "failed"
-      redirect_back fallback_location: root_path
+      redirect_to fallback_location: root_path
     end
   end
-
-  # def destory
-  #   if @newUser_Restaurant.destory
-  #     redirect_to user_path(current_user.id)
-  #   else
-  #     redirect_to @newUser_Restaurant
-  #   end
-  # end
 
   private
 
@@ -59,5 +51,5 @@ class ApisController < ApplicationController
 
   def favorite_params
     id = params.require(:restaurantsuser).permit(:user_id, :restaurant_id)
- end
+  end
 end

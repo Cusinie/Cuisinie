@@ -1,15 +1,17 @@
 <%= form_for(@comment) do |f| %>
   <% if current_user %>
-    <%= f.text_field :author, value: "#{current_user.email}"%>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-
   <% else %>
     <%= f.text_field :author, value: "Anonymous"%>
   <% end %>
   <br>
   <%= f.label :content %>
   <%= f.text_area :content, cols: 80, rows: 15 %>
-  <%= f.hidden_field :restaurant_id, value: @new_restaurant.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <% if @new_restaurant %>
+    <%= f.hidden_field :restaurant_id, value: @new_restaurant.id%>
+  <% else %>
+    <%= f.hidden_field :restaurant_id, value: Restaurant.where(:id => Comment.find(params[:id])[:restaurant_id])[0][:id]%>
+    <%= f.hidden_field :parent_id, value: params[:id] %>
+  <% end %>
   <%= f.submit %>
-
 <% end %>
